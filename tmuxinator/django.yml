@@ -1,0 +1,36 @@
+# ~/.tmuxinator/{project_name}.yml
+
+name: {project_name}
+root: ~/
+
+# Optional tmux socket
+# socket_name: {project_name}
+
+# Runs before everything. Use it to start daemons etc.
+# pre: workon {project_name}
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+pre_window: workon {project_name}
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options:
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - editor:
+      layout: tiled
+      panes:
+        -  # Empty, will just run plain bash
+        - vim
+        - python manage.py runserver
+  - ipython:
+      layout: tiled
+      panes:
+          - python manage.py shell -i ipython
+  - status:
+      layout: even-horizontal
+      panes:
+        - git status
+        - pip list --outdated
