@@ -1,0 +1,102 @@
+{
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"*.rar",
+		"*.7z"
+	],
+	"bold_folder_labels": true,
+	"caret_style": "smooth",
+	"color_scheme": "Packages/User/Tomorrow-Night (SL).tmTheme",
+	"detect_slow_plugins": false,
+	"draw_white_space": "selection",
+	"ensure_newline_at_eof_on_save": true,
+	"fallback_encoding": "UTF-8",
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.tmp",
+		"*.swp",
+		"*.bak"
+	],
+	"find_selected_text": true,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"_build",
+		"dist",
+		"build",
+		"site",
+		"__pycache__",
+		"__debug__"
+	],
+	"font_face": "DejaVu Sans Mono",
+	"font_options":
+	[
+		"no_bold",
+		"subpixel_antialias"
+	],
+	"font_size": 10,
+	"highlight_line": true,
+	"highlight_modified_tabs": false,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Scala",
+		"SublimeLinter-javac",
+		"Markdown",
+		"Erlang",
+		"Vintage",
+		"Haskell",
+		"RestructuredText",
+		"Go"
+	],
+	"rulers":
+	[
+		72,
+		80
+	],
+	"show_encoding": true,
+	"show_line_endings": true,
+	"smart_indent": true,
+	"soda_classic_tabs": true,
+	"spell_check": false,
+	"tab_size": 4,
+	"theme": "Soda Dark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"wide_caret": true
+}
