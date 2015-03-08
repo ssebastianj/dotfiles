@@ -1,4 +1,36 @@
 {
+	// Global behavior
+	"detect_slow_plugins": false,
+	"hot_exit": false,
+
+	// Theme & Colors
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/User/Tomorrow-Night (SL).tmTheme",
+	"soda_classic_tabs": true,
+	"theme": "Soda Dark.sublime-theme",
+
+	// Font
+	"font_face": "Ubuntu Mono",
+	"font_size": 12.0,
+	"font_options": ["bold", "subpixel_antialias"],
+
+	// Cursor
+	"caret_style": "smooth",
+	"wide_caret": true,
+
+	// Editor Look-&-Feel
+	"draw_white_space": "selection",
+	"highlight_line": true,
+
+	// Editor behavior
+	"find_selected_text": true,
+	"fallback_encoding": "UTF-8",
+	"highlight_modified_tabs": false,
+	"smart_indent": true,
+
+	// Word wrapping
+	"rulers": [72, 80],
+
 	"binary_file_patterns":
 	[
 		"*.jpg",
@@ -17,13 +49,8 @@
 		"*.rar",
 		"*.7z"
 	],
-	"bold_folder_labels": true,
-	"caret_style": "smooth",
-	"color_scheme": "Packages/User/Tomorrow-Night (SL).tmTheme",
-	"detect_slow_plugins": false,
-	"draw_white_space": "selection",
-	"ensure_newline_at_eof_on_save": true,
-	"fallback_encoding": "UTF-8",
+
+	// Exclusions
 	"file_exclude_patterns":
 	[
 		"*.pyc",
@@ -49,7 +76,7 @@
 		"*.swp",
 		"*.bak"
 	],
-	"find_selected_text": true,
+
 	"folder_exclude_patterns":
 	[
 		".svn",
@@ -63,40 +90,27 @@
 		"__pycache__",
 		"__debug__"
 	],
-	"font_face": "DejaVu Sans Mono",
-	"font_options":
-	[
-		"no_bold",
-		"subpixel_antialias"
-	],
-	"font_size": 10,
-	"highlight_line": true,
-	"highlight_modified_tabs": false,
-	"hot_exit": false,
+
 	"ignored_packages":
 	[
-		"Scala",
-		"SublimeLinter-javac",
-		"Markdown",
 		"Erlang",
-		"Vintage",
-		"Haskell",
+		"Go",
+		"Markdown",
 		"RestructuredText",
-		"Go"
+		"SublimeLinter-javac",
+		"Haskell",
+		"Vintage",
+		"Scala"
 	],
-	"rulers":
-	[
-		72,
-		80
-	],
+
+	// Status Bar
 	"show_encoding": true,
 	"show_line_endings": true,
-	"smart_indent": true,
-	"soda_classic_tabs": true,
 	"spell_check": false,
+
+	// Whitespace
+	"ensure_newline_at_eof_on_save": true,
 	"tab_size": 4,
-	"theme": "Soda Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"wide_caret": true
 }
