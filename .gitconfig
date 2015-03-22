@@ -1,0 +1,34 @@
+[color]
+	ui = 1
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[user]
+	name = Sebastián J. Seba
+    email = ssebastianj@gmail.com
+[gui]
+	spellingdictionary = none
+[i18n]
+	commitEncoding = utf-8
+	logOutputEncoding = utf-8
+[alias]
+	cm = commit
+	co = checkout
+	ac = !git add -A && git commit
+	st = status -sb
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	pushom = push origin master
+	pullom = pull origin master
+	pushhm = push heroku master
+	pullhm = pull heroku master
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[help]
+	autocorrect = 1
+[core]
+    editor = vim
+
