@@ -13,13 +13,22 @@
 	commitEncoding = utf-8
 	logOutputEncoding = utf-8
 [alias]
-	cm = commit
-	co = checkout
-	ac = !git add -A && git commit
+	cm = commit                                            # Commit
+    cam = !git add -A && git commit -m                     # Add & Commit  
+	co = checkout                                          # Checkout
+    cob = checkout -b                                      # Create branch and checkout
+	ac = !git add -A && git commit                 
 	st = status -sb
 	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
+    save = !git add -A && gti commit -m 'SAVEPOINT'        # Adds all changes including untracked 
+                                                           # files and creates a commit.
+    wip = !git add -u && git commit -m 'WIP'               # Commits tracked changes (Work In Progress)
+    undo = reset HEAD~1 --mixed                            # Resets the previous commit.
+                                                           # Keeps all changes from that commit in the
+                                                           # working directory.
+    amend = commit -a --amend                              # Modify the previous commit
+	branches = branch -a                                   # Show all the branches
+	remotes = remote -v                                    # Show all the remotes 
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	pushom = push origin master
 	pullom = pull origin master
@@ -27,6 +36,13 @@
 	pullhm = pull heroku master
 	unstage = reset HEAD --
 	last = log -1 HEAD
+    ec = config --global -e                                # Open Git global config on default editor
+    # Pull changes from remote. If any local commits exists, rebase them.
+    # Then, removes remote-tracking branches that no longer exist on the remote.
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+    bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f "
+    bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 [help]
 	autocorrect = 1
 [core]
