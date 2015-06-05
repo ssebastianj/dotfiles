@@ -6,6 +6,7 @@ set fileencoding=utf-8
 " Avoid modify this section, unless you are very sure of what you are doing
 
 " no vi-compatible
+
 set nocompatible
 
 " Setting up Vundle - the vim plugin bundler
@@ -112,6 +113,9 @@ Plugin 'tpope/vim-markdown'
 Plugin 'jmcantrell/vim-virtualenv'
 
 Plugin 'moll/vim-node'
+" Rust support
+Plugin 'rust-lang/rust.vim'
+
 " ============================================================================
 " Install plugins the first time vim runs
 
