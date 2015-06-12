@@ -1,0 +1,14 @@
+alias v=vim
+alias g=git
+alias py2=python2
+alias py3=python3
+alias dj='python manage.py'
+alias djr='dj runserver'
+alias djs='dj shell'
+alias djsi='dj shell -i ipython'
+alias djt='dj test'
+alias djdb='dj dbshell'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lla='ls -lA'
