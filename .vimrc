@@ -115,6 +115,7 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'moll/vim-node'
 " Rust support
 Plugin 'rust-lang/rust.vim'
+Plugin 'tpope/vim-fugitive'
 
 " ============================================================================
 " Install plugins the first time vim runs
@@ -421,8 +422,8 @@ let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 
 function! AirlineInit()
-    " let g:airline_section_a = airline#section#create(['mode', '  ', 'branch'])
-    " let g:airline_section_b = airline#section#create_left(['hunks', 'branch'])
+    " let g:airline_section_a = airline#section#create(['mode', ' ', 'branch'])
+    " let g:airline_section_b = airline#section#create_left(['hunks'])
     " let g:airline_section_c = airline#section#create(['filetype'])
     " let g:airline_section_x = airline#section#create(['tagbar' , ' ', 'filetype', ' ',  '%{virtualenv#statusline()}'])
     " let g:airline_section_y = airline#section#create(['%B'])
