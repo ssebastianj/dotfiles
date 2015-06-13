@@ -22,7 +22,7 @@ zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
 #### Aliases
-source .bash_aliases
+source $HOME/.bash_aliases
 ####
 
 export PATH="$HOME/.rbenv/bin:$PATH"
