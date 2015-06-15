@@ -25,6 +25,9 @@ bindkey "^I" expand-or-complete-with-dots
 source $HOME/.bash_aliases
 ####
 
+#### Colors
+autoload -U colors && colors
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
