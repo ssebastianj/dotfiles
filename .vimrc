@@ -111,11 +111,14 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-markdown'
 " Virtualenv
 Plugin 'jmcantrell/vim-virtualenv'
-
+" Node.JS
 Plugin 'moll/vim-node'
 " Rust support
 Plugin 'rust-lang/rust.vim'
+" Git integration
 Plugin 'tpope/vim-fugitive'
+" Golang
+Plugin 'fatih/vim-go'
 
 " ============================================================================
 " Install plugins the first time vim runs
@@ -158,6 +161,9 @@ syntax on
 
 " show line numbers
 set nu
+
+" Autorefresh files externally changed
+set autoread
 
 " tab navigation mappings
 map tn :tabn<CR>
