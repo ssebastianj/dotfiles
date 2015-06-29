@@ -7,6 +7,7 @@
 [user]
 	name = Sebastián J. Seba
     email = ssebastianj@gmail.com
+    signingkey = 483353DC
 [gui]
 	spellingdictionary = none
 [i18n]
@@ -43,6 +44,9 @@
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f "
     bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+	sdiff = !git diff && git submodule foreach 'git diff'
+	spush = push --recurse-submodules=on-demand
+	supdate = submodule update --remote --merge
 [help]
 	autocorrect = 1
 [core]
