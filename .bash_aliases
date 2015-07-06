@@ -16,6 +16,8 @@ alias djt="dj test"
 alias djdb="dj dbshell"
 alias py2svr="py2 -m SimpleHTTPServer"
 alias py3svr="py3 -m http.server"
+alias ipy2="ipython2"
+alias ipy3="ipython3"
 
 # ls
 alias l="ls -CF"
