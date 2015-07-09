@@ -40,7 +40,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Go vars
 export GOPATH="$HOME/Development/go"
-export PATH="$GOPATH/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # GVM
 [[ -s "/home/sebastian/.gvm/scripts/gvm" ]] && source "/home/sebastian/.gvm/scripts/gvm"
@@ -121,3 +121,6 @@ fi
 export WORKON_HOME=$HOME/Development/.virtualenvs
 export PROJECT_HOME=$HOME/Development
 source /usr/local/bin/virtualenvwrapper.sh
+
+# Exercism.io CLI
+export PATH="$HOME/exercism-io:$PATH"

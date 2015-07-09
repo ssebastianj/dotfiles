@@ -32,16 +32,15 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
-
-zstyle 'prezto:load' pmodule 'history-substring-search'
-zstyle 'prezto:load' pmodule 'syntax-highlighting'
-zstyle 'prezto:load' pmodule 'git'
-zstyle 'prezto:load' pmodule 'ruby'
-zstyle 'prezto:load' pmodule 'python'
-zstyle 'prezto:load' pmodule 'node'
-zstyle 'prezto:load' pmodule 'ssh'
-zstyle 'prezto:load' pmodule 'tmux'
+  'git' \
+  'ruby' \
+  'python' \
+  'node' \
+  'ssh' \
+  'tmux' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt'
 
 #
 #
