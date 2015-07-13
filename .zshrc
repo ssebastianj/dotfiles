@@ -43,7 +43,7 @@ export GOPATH="$HOME/Development/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # GVM
-[[ -s "/home/sebastian/.gvm/scripts/gvm" ]] && source "/home/sebastian/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -51,7 +51,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # NVM
-export NVM_DIR="/home/sebastian/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Tmuxinator config
@@ -124,3 +124,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Exercism.io CLI
 export PATH="$HOME/exercism-io:$PATH"
+
+# Rust source path
+export RUST_SRC_PATH="$HOME/Development/rust/src/"
+[[ -s "/home/sebastian/.gvm/scripts/gvm" ]] && source "/home/sebastian/.gvm/scripts/gvm"
