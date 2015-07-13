@@ -119,6 +119,11 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'tpope/vim-fugitive'
 " Golang
 Plugin 'fatih/vim-go'
+Plugin 'vim-jp/vim-go-extra'
+" Base16 Themes
+Plugin 'chriskempson/base16-vim'
+" Rust Auto-Complete-er
+Plugin 'phildawes/racer'
 
 " ============================================================================
 " Install plugins the first time vim runs
@@ -205,15 +210,16 @@ nmap ,wr :RecurGrepFast <cword><CR>
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
-	let &t_Co = 256
-    colorscheme fisa
-else
-    colorscheme delek
-endif
+     let &t_Co = 256
+     colorscheme fisa
+ else
+     background=dark
+     colorscheme base16-eighties 
+ endif
 
 " colors for gvim
 if has('gui_running')
-    colorscheme wombat
+    colorscheme base16-eighties
 endif
 
 " when scrolling, keep cursor 3 lines away from screen border
@@ -468,3 +474,8 @@ function! RenameFile()
     endif
 endfunction
 map <leader>r :call RenameFile()<cr>
+
+" Rust Auto Complete-Er config
+set hidden
+let g:racer_cmd="$HOME/Development/racer/target/release/racer"
+let $RUST_SRC_PATH="$HOME/Development/rust/src/"
