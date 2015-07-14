@@ -6,7 +6,6 @@ set fileencoding=utf-8
 " Avoid modify this section, unless you are very sure of what you are doing
 
 " no vi-compatible
-
 set nocompatible
 
 " Setting up Vundle - the vim plugin bundler
@@ -32,60 +31,70 @@ Plugin 'gmarik/vundle'
 " Active plugins
 " You can disable or add new ones here:
 
-" Plugins from github repos:
+" Plugins from GitHub repos:
+" ----------------------------------------------------------------------------
 
-" Python and PHP Debugger
-Plugin 'fisadev/vim-debug.vim'
-" Better file browser
-Plugin 'scrooloose/nerdtree'
-" Code commenter
-Plugin 'scrooloose/nerdcommenter'
-" Class/module browser
-Plugin 'majutsushi/tagbar'
-" Code and files fuzzy finder
-Plugin 'kien/ctrlp.vim'
-" Extension to ctrlp, for fuzzy command finder
-Plugin 'fisadev/vim-ctrlp-cmdpalette'
-" Zen coding
-Plugin 'mattn/emmet-vim'
-" Git integration
-Plugin 'motemen/git-vim'
-" Tab list panel
-Plugin 'kien/tabman.vim'
 " Airline
 Plugin 'bling/vim-airline'
+
+" Base16 Themes
+Plugin 'chriskempson/base16-vim'
+
+" Golang
+Plugin 'fatih/vim-go'
+
+" Drag visual blocks arround
+Plugin 'fisadev/dragvisuals.vim'
 " Terminal Vim with 256 colors colorscheme
 Plugin 'fisadev/fisa-vim-colorscheme'
-" Consoles as buffers
-Plugin 'rosenfeld/conque-term'
 " Pending tasks list
 Plugin 'fisadev/FixedTaskList.vim'
-" Surround
-Plugin 'tpope/vim-surround'
-" Autoclose
-Plugin 'Townk/vim-autoclose'
-" Indent text object
-Plugin 'michaeljsmith/vim-indent-object'
+" Extension to ctrlp, for fuzzy command finder
+Plugin 'fisadev/vim-ctrlp-cmdpalette'
+" Python and PHP Debugger
+Plugin 'fisadev/vim-debug.vim'
+" Automatically sort python imports
+Plugin 'fisadev/vim-isort'
+
+" Snippets manager (SnipMate), dependencies, and snippets repo
+Plugin 'garbas/vim-snipmate'
+
+" Snippets manager (SnipMate), dependencies, and snippets repo
+Plugin 'honza/vim-snippets'
+
+" Virtualenv
+Plugin 'jmcantrell/vim-virtualenv'
+
+" Code and files fuzzy finder
+Plugin 'kien/ctrlp.vim'
+" Tab list panel
+Plugin 'kien/tabman.vim'
+
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
 Plugin 'klen/python-mode'
-" Better autocompletion
-Plugin 'Shougo/neocomplete.vim'
+
+" Class/module browser
+Plugin 'majutsushi/tagbar'
+
 " Snippets manager (SnipMate), dependencies, and snippets repo
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
-Plugin 'garbas/vim-snipmate'
+
+" Zen coding
+Plugin 'mattn/emmet-vim'
+
 " Git/mercurial/others diff icons on the side of the file lines
 Plugin 'mhinz/vim-signify'
-" Automatically sort python imports
-Plugin 'fisadev/vim-isort'
-" Drag visual blocks arround
-Plugin 'fisadev/dragvisuals.vim'
-" Window chooser
-Plugin 't9md/vim-choosewin'
-" Python and other languages code checker
-Plugin 'scrooloose/syntastic'
+
+" Indent text object
+Plugin 'michaeljsmith/vim-indent-object'
+
+" Node.JS
+Plugin 'moll/vim-node'
+
+" Git integration
+Plugin 'motemen/git-vim'
+
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
 " on/off. When the plugin is present, will always activate the relative
@@ -93,7 +102,51 @@ Plugin 'scrooloose/syntastic'
 " to avoid that)
 " Plugin 'myusuf3/numbers.vim'
 
+" Vastly improved Javascript indentation and syntax support
+Plugin 'pangloss/vim-javascript'
+
+" Rust Auto-Complete-er
+Plugin 'phildawes/racer'
+
+" Consoles as buffers
+Plugin 'rosenfeld/conque-term'
+
+" Rust support
+Plugin 'rust-lang/rust.vim'
+
+" Code commenter
+Plugin 'scrooloose/nerdcommenter'
+" Better file browser
+Plugin 'scrooloose/nerdtree'
+" Python and other languages code checker
+Plugin 'scrooloose/syntastic'
+
+" Snippets manager (SnipMate), dependencies, and snippets repo
+Plugin 'tomtom/tlib_vim'
+
+" Autoclose
+Plugin 'Townk/vim-autoclose'
+
+" Git integration
+Plugin 'tpope/vim-fugitive'
+" Markdown runtime filesi
+Plugin 'tpope/vim-markdown'
+" Ruby on Rails power tools
+Plugin 'tpope/vim-rails'
+" Surround
+Plugin 'tpope/vim-surround'
+
+" Window chooser
+Plugin 't9md/vim-choosewin'
+
+" Better autocompletion
+Plugin 'Shougo/neocomplete.vim'
+
+" Go Extra
+Plugin 'vim-jp/vim-go-extra'
+
 " Plugins from vim-scripts repos:
+" ----------------------------------------------------------------------------
 
 " Search results counter
 Plugin 'IndexedSearch'
@@ -103,27 +156,6 @@ Plugin 'matchit.zip'
 Plugin 'Wombat'
 " Yank history navigation
 Plugin 'YankRing.vim'
-" Ruby on Rails power tools
-Plugin 'tpope/vim-rails'
-" Vastly improved Javascript indentation and syntax support
-Plugin 'pangloss/vim-javascript'
-" Markdown runtime filesi
-Plugin 'tpope/vim-markdown'
-" Virtualenv
-Plugin 'jmcantrell/vim-virtualenv'
-" Node.JS
-Plugin 'moll/vim-node'
-" Rust support
-Plugin 'rust-lang/rust.vim'
-" Git integration
-Plugin 'tpope/vim-fugitive'
-" Golang
-Plugin 'fatih/vim-go'
-Plugin 'vim-jp/vim-go-extra'
-" Base16 Themes
-Plugin 'chriskempson/base16-vim'
-" Rust Auto-Complete-er
-Plugin 'phildawes/racer'
 
 " ============================================================================
 " Install plugins the first time vim runs
@@ -214,7 +246,7 @@ if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
      colorscheme fisa
  else
      background=dark
-     colorscheme base16-eighties 
+     colorscheme base16-eighties
  endif
 
 " colors for gvim
@@ -449,7 +481,7 @@ endif
 "
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::' 
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " TabMan ------------------------------
 
@@ -502,7 +534,7 @@ let g:virtualenv_auto_activate = 0
 
 " Airline ------------------------------
 
-let g:airline_powerline_fonts = 1 
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 
