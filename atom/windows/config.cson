@@ -1,0 +1,99 @@
+"*":
+  "asciidoc-preview":
+    compatMode: false
+    renderOnSaveOnly: true
+    tocType: "none"
+  "atom-beautify":
+    analytics: false
+    language_rust_beautify_on_save: true
+    rust_rustfmt_path: "%USERPROFILE%\\.cargo\\bin"
+  "atom-ternjs": {}
+  "autocomplete-python":
+    extraPaths: "$PROJECT/venv/lib/site-packages;$PROJECT\\venv\\Lib\\site-packages;$VIRTUAL_ENV/lib/site-packages;$VIRTUAL_ENV\\Lib\\site-packages;"
+    fuzzyMatcher: false
+    outputDebug: true
+    outputProviderErrors: true
+  core:
+    allowPendingPaneItems: false
+    automaticallyUpdate: false
+    disabledPackages: [
+      "welcome"
+      "spell-check"
+      "feedback"
+      "exception-reporting"
+      "background-tips"
+      "release-notes"
+      "metrics"
+      "package-generator"
+      "open-on-github"
+      "styleguide"
+      "about"
+      "image-view"
+      "timecop"
+      "asciidoc-preview"
+      "markdown-preview"
+    ]
+    themes: [
+      "seti-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  "django-templates": {}
+  editor:
+    fontFamily: "Inconsolata, 'DejaVu Sans Mono', Consolas, 'Ubuntu Mono', monospace"
+    fontSize: 15
+    invisibles: {}
+    showIndentGuide: true
+    tabLength: 4
+  emmet:
+    extensionsPath: "~\\.emmet"
+  "file-icons": {}
+  "go-plus":
+    formatTool: "gofmt"
+  linter: {}
+  "linter-eslint":
+    globalNodePath: "%USERPROFILE%\\AppData\\Roaming\\npm"
+    useGlobalEslint: true
+  "linter-flake8":
+    configFileNames: [
+      "tox.ini"
+      "setup.cfg"
+    ]
+    ignoreErrorCodes: [
+      "E501"
+    ]
+    maxLineLength: 99
+  "linter-jshint": {}
+  "markdown-preview":
+    liveUpdate: false
+  "markdown-preview-plus":
+    enablePandoc: true
+    liveUpdate: false
+    pandocArguments: [
+      "--smart"
+    ]
+    pandocBibliography: true
+    pandocPath: "%USERPROFILE%\\AppData\\Local\\Pandoc\\pandoc.exe"
+  "merge-conflicts":
+    gitPath: "%PROGRAMFILES%\\Git\\bin\\git.exe"
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      selection: true
+      selectionDecorationsZIndex: 0
+  "omni-ruler":
+    columns: [
+      "72"
+      "80"
+    ]
+  "one-dark-ui": {}
+  racer:
+    racerBinPath: "%USERPROFILE%\\.cargo\\bin\\racer.exe"
+    rustSrcPath: "%USERPROFILE%\\Development\\Proyectos\\rust\\src"
+  welcome:
+    showOnStartup: false
+  whitespace:
+    removeTrailingWhitespace: true
+".django.python.source":
+  editor:
+    showInvisibles: true
