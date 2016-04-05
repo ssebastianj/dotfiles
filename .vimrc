@@ -35,7 +35,9 @@ Plugin 'gmarik/vundle'
 " ----------------------------------------------------------------------------
 
 " Airline
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Base16 Themes
 Plugin 'chriskempson/base16-vim'
@@ -583,4 +585,4 @@ map <leader>r :call RenameFile()<cr>
 " Rust Auto Complete-Er config
 set hidden
 let g:racer_cmd="$HOME/Development/racer/target/release/racer"
-" let $RUST_SRC_PATH="$HOME/Development/rust/src/"
+let $RUST_SRC_PATH="$HOME/Development/rust/src/"
