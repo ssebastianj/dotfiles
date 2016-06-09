@@ -51,7 +51,7 @@
 [core]
     editor = vim
 [credential]
-	helper = gnome-keyring
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [merge]
 	tool = meld
 [mergetool "meld"]
