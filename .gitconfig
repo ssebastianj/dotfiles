@@ -1,13 +1,12 @@
 [color]
     ui = 1
-    status = auto
-    branch = auto
-    interactive = auto
-    diff = auto
+    status = true
+    branch = true
+    interactive = true
+    diff = true
 [user]
     name = Sebastián J. Seba
     email = ssebastianj@gmail.com
-    signingkey = 483353DC
 [gui]
     spellingdictionary = none
 [i18n]
@@ -51,3 +50,14 @@
     autocorrect = 1
 [core]
     editor = vim
+[credential]
+	helper = cache
+[merge]
+	tool = meld
+[mergetool "meld"]
+	cmd = meld '$BASE $LOCAL $REMOTE $MERGED'
+	trustExitCode = false
+[diff]
+	tool = meld
+[difftool "meld"]
+	cmd = meld '$LOCAL $REMOTE'
