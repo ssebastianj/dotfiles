@@ -1,169 +1,164 @@
 set encoding=utf-8
 set fileencoding=utf-8
 
-" ============================================================================
-" Vundle initialization
-" Avoid modify this section, unless you are very sure of what you are doing
-
 " no vi-compatible
 set nocompatible
 
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
-endif
-
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+let vim_plug_just_installed = 0
+let vim_plug_path = expand('~/.vim/autoload/plug.vim')
 
-" let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+if !filereadable(vim_plug_path)
+    echo "Installing vim-plug..."
+    echo ""
+    silent !mkdir -p ~/.vim/autoload
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let vim_plug_just_installed = 1
+endif
+
+if vim_plug_just_installed
+    :execute 'source '.fnameescape(vim_plug_path)
+endif
 
 " ============================================================================
 " Active plugins
 " You can disable or add new ones here:
+call plug#begin('~/.vim/plugged')
 
 " Plugins from GitHub repos:
 " ----------------------------------------------------------------------------
 
 " Airline
-" Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Base16 Themes
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 
 " Golang
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " Drag visual blocks arround
-Plugin 'fisadev/dragvisuals.vim'
+Plug 'fisadev/dragvisuals.vim'
 " Terminal Vim with 256 colors colorscheme
-Plugin 'fisadev/fisa-vim-colorscheme'
+Plug 'fisadev/fisa-vim-colorscheme'
 " Pending tasks list
-Plugin 'fisadev/FixedTaskList.vim'
+Plug 'fisadev/FixedTaskList.vim'
 " Extension to ctrlp, for fuzzy command finder
-Plugin 'fisadev/vim-ctrlp-cmdpalette'
+Plug 'fisadev/vim-ctrlp-cmdpalette'
 " Automatically sort python imports
-Plugin 'fisadev/vim-isort'
+Plug 'fisadev/vim-isort'
 
 " Snippets manager (SnipMate), dependencies, and snippets repo
-Plugin 'garbas/vim-snipmate'
+Plug 'garbas/vim-snipmate'
 
 " Snippets manager (SnipMate), dependencies, and snippets repo
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Virtualenv
-Plugin 'jmcantrell/vim-virtualenv'
+Plug 'jmcantrell/vim-virtualenv'
 
 " Code and files fuzzy finder
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " Tab list panel
-Plugin 'kien/tabman.vim'
+Plug 'kien/tabman.vim'
 
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
-Plugin 'klen/python-mode'
+Plug 'klen/python-mode'
 
 " Class/module browser
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " Snippets manager (SnipMate), dependencies, and snippets repo
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plug 'MarcWeber/vim-addon-mw-utils'
 
 " Zen coding
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " Git/mercurial/others diff icons on the side of the file lines
-Plugin 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 
 " Indent text object
-Plugin 'michaeljsmith/vim-indent-object'
+Plug 'michaeljsmith/vim-indent-object'
 
 " Node.JS
-Plugin 'moll/vim-node'
+Plug 'moll/vim-node'
 
 " Git integration
-Plugin 'motemen/git-vim'
+Plug 'motemen/git-vim'
 
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
-" on/off. When the plugin is present, will always activate the relative
+" on/off. When the plug is present, will always activate the relative
 " numbering every time you go to normal mode. Author refuses to add a setting
 " to avoid that)
-" Plugin 'myusuf3/numbers.vim'
+" Plug 'myusuf3/numbers.vim'
 
 " Vastly improved Javascript indentation and syntax support
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 
 " Rust Auto-Complete-er
-Plugin 'phildawes/racer'
+Plug 'phildawes/racer'
 
 " Consoles as buffers
-Plugin 'rosenfeld/conque-term'
+Plug 'rosenfeld/conque-term'
 
 " Rust support
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
 " Code commenter
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " Better file browser
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Python and other languages code checker
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Snippets manager (SnipMate), dependencies, and snippets repo
-Plugin 'tomtom/tlib_vim'
+Plug 'tomtom/tlib_vim'
 
 " Autoclose
-Plugin 'Townk/vim-autoclose'
+Plug 'Townk/vim-autoclose'
 
 " Git integration
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Markdown runtime filesi
-Plugin 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 " Ruby on Rails power tools
-Plugin 'tpope/vim-rails'
+Plug 'tpope/vim-rails'
 " Surround
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " Window chooser
-Plugin 't9md/vim-choosewin'
+Plug 't9md/vim-choosewin'
 
 " Better autocompletion
-Plugin 'Shougo/neocomplete.vim'
+Plug 'Shougo/neocomplete.vim'
 
 " Go Extra
-Plugin 'vim-jp/vim-go-extra'
+Plug 'vim-jp/vim-go-extra'
 
-" Plugins from vim-scripts repos:
+" Plugs from vim-scripts repos:
 " ----------------------------------------------------------------------------
 
 " Search results counter
-Plugin 'IndexedSearch'
+Plug 'IndexedSearch'
 " XML/HTML tags navigation
-Plugin 'matchit.zip'
+Plug 'matchit.zip'
 " Gvim colorscheme
-Plugin 'Wombat'
+Plug 'Wombat'
 " Yank history navigation
-Plugin 'YankRing.vim'
+Plug 'YankRing.vim'
+
+call plug#end()
 
 " ============================================================================
 " Install plugins the first time vim runs
 
-if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :PluginInstall
+if vim_plug_just_installed
+    echo "Installing plugins..."
+    :PlugInstall
 endif
 
 " ============================================================================
@@ -243,7 +238,6 @@ nmap ,wr :RecurGrepFast <cword><CR>
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
      let &t_Co = 256
-     colorscheme fisa
  else
      background=dark
      colorscheme base16-eighties

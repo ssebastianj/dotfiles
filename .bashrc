@@ -167,3 +167,7 @@ export PATH="$HOME/.git-contrib:$PATH"
 ### Rust
 export RUST_SRC_PATH="$DEVDIR/rust/src"
 export CARGO_HOME="$HOME/.cargo"
+
+### Docker Machine
+PS1="$PS1$(__docker_machine_ps1)"
+
