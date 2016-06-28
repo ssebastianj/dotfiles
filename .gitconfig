@@ -1,63 +1,71 @@
 [color]
-    ui = 1
-    status = true
-    branch = true
+    ui          = 1
+    status      = true
+    branch      = true
     interactive = true
-    diff = true
+    diff        = true
 [user]
-    name = Sebastián J. Seba
-    email = ssebastianj@gmail.com
+    name       = Sebastián J. Seba
+    email      = ssebastianj@gmail.com
 [gui]
     spellingdictionary = none
 [i18n]
-    commitEncoding = utf-8
+    commitEncoding    = utf-8
     logOutputEncoding = utf-8
 [alias]
-    cm = commit                                            # Commit
-    cam = !git add -A && git commit -m                     # Add & Commit
-    co = checkout                                          # Checkout
-    cob = checkout -b                                      # Create branch and checkout
-    ac = !git add -A && git commit
-    st = status -sb
-    tags = tag -l
-    save = !git add -A && gti commit -m 'SAVEPOINT'        # Adds all changes including untracked
+    ac    = !git add -A && git commit
+    cm    = commit                                            # Commit
+    cam   = !git add -A && git commit -m                     # Add & Commit
+    co    = checkout                                          # Checkout
+    cob   = checkout -b                                      # Create branch and checkout
+    fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@ | sed \"s/fixup\\! //\")\"' -
+    ri    = rebase --interactive --autosquash
+    st    = status -sb
+    tags  = tag -l
+    save  = !git add -A && gti commit -m 'SAVEPOINT'        # Adds all changes including untracked
                                                            # files and creates a commit.
-    wip = !git add -u && git commit -m 'WIP'               # Commits tracked changes (Work In Progress)
-    undo = reset HEAD~1 --mixed                            # Resets the previous commit.
+    wip   = !git add -u && git commit -m 'WIP'               # Commits tracked changes (Work In Progress)
+    undo  = reset HEAD~1 --mixed                            # Resets the previous commit.
                                                            # Keeps all changes from that commit in the
                                                            # working directory.
-    amend = commit -a --amend                              # Modify the previous commit
+    amend    = commit -a --amend                              # Modify the previous commit
     branches = branch -a                                   # Show all the branches
-    remotes = remote -v                                    # Show all the remotes
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    pushom = push origin master
-    pullom = pull origin master
-    pushhm = push heroku master
-    pullhm = pull heroku master
-    unstage = reset HEAD --
-    last = log -1 HEAD
-    ec = config --global -e                                # Open Git global config on default editor
+    remotes  = remote -v                                    # Show all the remotes
+    lg       = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    pushom   = push origin master
+    pullom   = pull origin master
+    pushhm   = push heroku master
+    pullhm   = pull heroku master
+    unstage  = reset HEAD --
+    last     = log -1 HEAD
+    ec       = config --global -e                                # Open Git global config on default editor
     # Pull changes from remote. If any local commits exists, rebase them.
     # Then, removes remote-tracking branches that no longer exist on the remote.
-    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
-    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-    bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f "
-    bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
-    sdiff = !git diff && git submodule foreach 'git diff'
-    spush = push --recurse-submodules=on-demand
-    supdate = submodule update --remote --merge
+    up       = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    wipe     = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+    bclean   = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f "
+    bdone    = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+    sdiff    = !git diff && git submodule foreach 'git diff'
+    spush    = push --recurse-submodules=on-demand
+    supdate  = submodule update --remote --merge
 [help]
     autocorrect = 1
 [core]
     editor = vim
 [credential]
-	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+    helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [merge]
-	tool = meld
+    tool = meld
 [mergetool "meld"]
-	cmd = meld '$BASE $LOCAL $REMOTE $MERGED'
-	trustExitCode = false
+    cmd           = meld '$BASE $LOCAL $REMOTE $MERGED'
+    trustExitCode = false
 [diff]
-	tool = meld
+    tool = meld
 [difftool "meld"]
-	cmd = meld '$LOCAL $REMOTE'
+    cmd = meld '$LOCAL $REMOTE'
+[pager]
+    log  = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+[interactive]
+    diffFilter = diff-highlight
