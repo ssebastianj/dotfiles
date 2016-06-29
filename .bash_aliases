@@ -1,31 +1,56 @@
-# Git
+## Git
 alias g="git"
-alias s="g status -s"
 
-# Vim
+## Vim
 alias v="vim"
 
 # Python
 alias py2="python2"
 alias py3="python3"
-alias dj="python manage.py"
-alias djr="dj runserver"
-alias djs="dj shell"
-alias djsi="dj shell -i ipython"
-alias djt="dj test"
-alias djdb="dj dbshell"
+
+## Django
+### Admin
+alias dja="django-admin"
+
+### Manage
+alias djm="python manage.py"
+alias djc="djm check"
+alias djcm="djm compilemessages"
+alias djdd="djm dumpdata"
+alias djds="djm diffsettings"
+alias djf="djm flush"
+alias djidb="djm inspectdb"
+alias djld="djm loaddata"
+alias djm="djm migrate"
+alias djmmig="djm makemigrations"
+alias djmmes="djm makemessages"
+alias djr="djm runserver"
+alias djsa="djm startapp"
+alias djsp="djm startproject"
+alias djsh="djm shell"
+alias djshi="djm shell -i ipython"
+alias djsm="djm showmigrations"
+alias djsqlf="djm sqlflush"
+alias djsqlm="djm sqlmigrate"
+alias djsqlsr="djm sqlsequencereset"
+alias djt="djm test"
+alias djts="djm testserver"
+alias djdbs="djm dbshell"
+
+## Python HTTP server
 alias py2svr="py2 -m SimpleHTTPServer"
 alias py3svr="py3 -m http.server"
 alias ipy2="ipython2"
 alias ipy3="ipython3"
 
-# ls
+## ls
 alias l="ls -CF"
 alias la="ls -A"
-alias ll="ls -alF"
-alias lla="ls -lA"
+alias ll="ls -lF"
+alias lla="ls -laF"
+alias llas="ls -al --group-directories-first"
 
-# npm
+## npm
 alias npmp="sudo npm publish"
 alias npma="sudo npm adduser"
 alias npmi="sudo npm install"

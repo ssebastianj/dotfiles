@@ -171,3 +171,6 @@ export CARGO_HOME="$HOME/.cargo"
 ### Docker Machine
 PS1="$PS1$(__docker_machine_ps1)"
 
+### Django
+. $HOME/development/django/extras/django_bash_completion
+
