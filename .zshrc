@@ -1,44 +1,82 @@
+#### ============================ zprezto ====================================
 ## Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Disable autocorrect guesses.
-unsetopt CORRECT
+#### ============================= zsh =======================================
+#### Advanced tab-completion 
+# Initialize completion for the current session
+autoload -Uz compinit && compinit
 
-# 10 seconds wait if something will delete everything.
-setopt RM_STAR_WAIT
+#### Prompts
+# Initialize advanced prompt support
+autoload -Uz promptinit && promptinit
 
-# Enable extended glob
+#### Colors
+autoload -Uz colors && colors
+
+#### Options
+## Changing Directories
+setopt PUSHD_IGNORE_DUPS
+
+## Completion
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt REC_EXACT
+
+## Expansion and Globbing
 setopt EXTENDED_GLOB
 
-# Expand/complete with dots
-expand-or-complete-with-dots() {
-    echo -n "\e[31m......\e[0m"
-    zle expand-or-complete
-    zle redisplay
-}
+## History
+setopt APPEND_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
 
-zle -N expand-or-complete-with-dots
-bindkey "^I" expand-or-complete-with-dots
-# 
+## Initilization
 
-# Lines configured by zsh-newuser-install
+## Input/Output
+unsetopt CORRECT_ALL
+setopt CORRECT
+setopt RM_STAR_WAIT
+
+## Job Control
+setopt MONITOR
+setopt NOTIFY
+
+## Prompting
+
+## Scripts and Functions
+setopt C_BASES
+
+## Shell Emulation
+
+## Shell State
+
+## Zle
+bindkey -v
+
+#### History
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+HISTSIZE=2000
+SAVEHIST=2000
+
+#### Styles
 zstyle :compinstall filename '/home/sebastian/.zshrc'
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+#### Aliases 
+alias cp='nocorrect cp'
+alias mv='nocorrect mv'
+alias rm='nocorrect rm'
+alias cpi='nocorrect cp -i'
+alias mvi='nocorrect mv -i'
+alias rmi='nocorrect rm -i'
 
 
-#### ---------------------------- ssebastianj --------------------------------
+#### ============================ ssebastianj ================================
+
 #### Aliases -----------------------------------------------------------------
 source $HOME/.aliases
 
