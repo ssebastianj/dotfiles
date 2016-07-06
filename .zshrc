@@ -80,9 +80,6 @@ alias rmi='nocorrect rm -i'
 #### Aliases -----------------------------------------------------------------
 source $HOME/.aliases
 
-#### Colors ------------------------------------------------------------------
-autoload -U colors && colors
-
 #### Root dir for development purposes ---------------------------------------
 export DEVDIR="$HOME/development"
 
