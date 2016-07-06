@@ -1,10 +1,14 @@
+#### ============================ zsh (1) ====================================
+#### Completions
+fpath=(~/.zsh/completion $fpath)
+
 #### ============================ zprezto ====================================
 ## Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-#### ============================= zsh =======================================
+#### =========================== zsh (2)======================================
 #### Advanced tab-completion 
 # Initialize completion for the current session
 autoload -Uz compinit && compinit
@@ -21,6 +25,7 @@ autoload -Uz colors && colors
 setopt PUSHD_IGNORE_DUPS
 
 ## Completion
+unsetopt AUTO_NAME_DIRS
 setopt AUTO_LIST
 setopt AUTO_MENU
 setopt REC_EXACT
