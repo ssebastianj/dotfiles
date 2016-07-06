@@ -1,18 +1,18 @@
-## Git
+#### Git ---------------------------------------------------------------------
 alias g="git"
 
-## Vim
+#### Vim ---------------------------------------------------------------------
 alias v="vim"
 
-# Python
+#### Python ------------------------------------------------------------------
 alias py2="python2"
 alias py3="python3"
 
-## Django
-### Admin
+#### Django ------------------------------------------------------------------
+## Admin
 alias dja="django-admin"
 
-### Manage
+## Manage
 alias djm="python manage.py"
 alias djc="djm check"
 alias djcm="djm compilemessages"
@@ -43,14 +43,14 @@ alias py3svr="py3 -m http.server"
 alias ipy2="ipython2"
 alias ipy3="ipython3"
 
-## ls
+#### ls ----------------------------------------------------------------------
 alias l="ls -CF"
 alias la="ls -A"
 alias ll="ls -lF"
 alias lla="ls -laF"
 alias llas="ls -al --group-directories-first"
 
-## npm
+#### npm ---------------------------------------------------------------------
 alias npmb="npm build"
 alias npmrb="npm rebuild"
 alias npmp="npm publish"
@@ -59,3 +59,7 @@ alias npmig="npm install -g"
 alias npmu="npm update"
 alias npmug="npm update -g"
 alias npmt="npm test"
+
+#### tree --------------------------------------------------------------------
+alias treec='tree -CAFa -I "CVS|*.*.package|.svn|.git|.hg|node_modules|bower_components" --dirsfirst'
+

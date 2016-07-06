@@ -1,130 +1,118 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
+## Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
-                                      # command that may look like an existing one.
+# Disable autocorrect guesses.
+unsetopt CORRECT
 
-expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
-    echo -n "\e[31m......\e[0m"           # a command with the tab key, "Oh-my-zsh"-style.
+# 10 seconds wait if something will delete everything.
+setopt RM_STAR_WAIT
+
+# Enable extended glob
+setopt EXTENDED_GLOB
+
+# Expand/complete with dots
+expand-or-complete-with-dots() {
+    echo -n "\e[31m......\e[0m"
     zle expand-or-complete
     zle redisplay
 }
+
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
+# 
 
-#### Aliases
-source $HOME/.bash_aliases
-####
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/sebastian/.zshrc'
 
-#### Colors
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+
+#### ---------------------------- ssebastianj --------------------------------
+#### Aliases -----------------------------------------------------------------
+source $HOME/.aliases
+
+#### Colors ------------------------------------------------------------------
 autoload -U colors && colors
 
+#### Root dir for development purposes ---------------------------------------
+export DEVDIR="$HOME/development"
+
+#### rbenv -------------------------------------------------------------------
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH=/home/sebastian/npm/bin:/home/sebastian/.rbenv/plugins/ruby-build/bin:/home/sebastian/.rbenv/shims:/home/sebastian/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-export NODE_PATH=:/home/sebastian/npm/lib/node_modules
 
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s “$HOME/.rvm/scripts/rvm” ]] && . “$HOME/.rvm/scripts/rvm” ]]
+#### tmuxinator --------------------------------------------------------------
+export EDITOR="vim"
+source $HOME/.bin/tmuxinator.zsh
 
-# Go vars
-export GOPATH="$HOME/Development/go"
-export PATH="$PATH:$GOPATH/bin"
-
-# GVM
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# NVM
+#### Node Version Manager ----------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Tmuxinator config
-export EDITOR='vim'
-source ~/.bin/tmuxinator.bash
+# Calling nvm use automatically in a directory with a .nvmrc file
+autoload -U add-zsh-hook
+load-nvmrc() {
+   if [[ -f .nvmrc && -r .nvmrc ]]; then
+     nvm use
+   elif [[ $(nvm version) != $(nvm version default)  ]]; then
+     echo "Reverting to nvm default version"
+     nvm use default
+   fi
+                   }
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
-### Added by the Heroku Toolbelt
+#### Added by the Heroku Toolbelt --------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### npm
-export PATH="$PATH:$HOME/npm/bin"
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
+#### Python pip user binaries ------------------------------------------------
+export PATH="$HOME/.local/bin:$PATH"
 
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
+#### Virtualenvwrapper -------------------------------------------------------
+export WORKON_HOME="$DEVDIR/.virtualenvs"
+export PROJECT_HOME=$DEVDIR
+export VIRTUALENVWRAPPER_PYTHON=`which python`
+# source `which virtualenvwrapper.sh`
+
+#### -------------------------------------------------------------------------
+#### Taken from "https://marklodato.github.io/2013/10/25/github-two-factor-and-gnome-keyring.html"
+#### Tell D-Bus to use the instance that was started on the machine'so
+#### graphical login, and this in turn allows git-credential-gnome-keyring
+#### to talk to the main gnome-keyring-daemon instance.
+if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
+    if [[ -f ~/.dbus/session-bus/$(dbus-uuidgen --get)-0 ]]; then
+        source ~/.dbus/session-bus/$(dbus-uuidgen --get)-0
+        export DBUS_SESSION_BUS_ADDRESS
+    fi
 fi
-###-end-npm-completion-###
 
-# virtualenv
-export WORKON_HOME=$HOME/Development/.virtualenvs
-export PROJECT_HOME=$HOME/Development
-source /usr/local/bin/virtualenvwrapper.sh
+#### Golang ------------------------------------------------------------------
+export GOPATH="$DEVDIR/gocode"
+export PATH="$PATH:$GOPATH/bin"
 
-# Exercism.io CLI
-export PATH="$HOME/exercism-io:$PATH"
+#### Git ---------------------------------------------------------------------
+export PATH="$HOME/.git-contrib:$PATH"
 
-# Rust source path
-export RUST_SRC_PATH="$HOME/Development/rust/src/"
-[[ -s "/home/sebastian/.gvm/scripts/gvm" ]] && source "/home/sebastian/.gvm/scripts/gvm"
+#### Rust --------------------------------------------------------------------
+export RUST_SRC_PATH="$DEVDIR/rust/src"
+export CARGO_HOME="$HOME/.cargo"
+
+#### Docker Machine ----------------------------------------------------------
+#PS1="$PS1$(__docker_machine_ps1)"
+
+#### Django ------------------------------------------------------------------
+bash $HOME/development/django/extras/django_bash_completion
+
