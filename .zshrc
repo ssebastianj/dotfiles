@@ -1,12 +1,12 @@
-#### ============================ zsh (1) ====================================
-#### Completions
-fpath=(~/.zsh/completion $fpath)
-
 #### ============================ zprezto ====================================
 ## Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+#### ============================ zsh (1) ====================================
+#### Completions
+fpath=(~/.zsh/completion $fpath)
 
 #### =========================== zsh (2)======================================
 #### Advanced tab-completion
@@ -67,7 +67,6 @@ HISTSIZE=2000
 SAVEHIST=2000
 
 #### Styles
-zstyle :compinstall filename '/home/sebastian/.zshrc'
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
@@ -78,7 +77,8 @@ alias rm='nocorrect rm'
 alias cpi='nocorrect cp -i'
 alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
-
+#unalias gpt
+#unalias gs
 
 #### ============================ ssebastianj ================================
 source ~/.commonrc

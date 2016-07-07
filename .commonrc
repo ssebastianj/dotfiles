@@ -3,25 +3,31 @@
 # Assume "bash" shell by default
 guessed_shell="bash"
 
-guess_shell(){
-    if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+guess_shell() {
+    if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
         # Assume shell is zsh
         guessed_shell="zsh"
-    elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
+    elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
         # Assume shell is bash
         guessed_shell="bash"
+    elif [ -n "$($SHELL -c 'echo $FISH_VERSION')" ]; then
+        # Assume shell is fish
+        guessed_shell="fish"
     fi
 }
-
 # Try to guess shell
 guess_shell
 
-is_bash_shell(){
-    if [ "$guessed_shell" == "bash" ]; then return 0; else return 1; fi
+is_bash_shell() {
+    [[ "$guessed_shell" == "bash" ]]
 }
 
-is_zsh_shell(){
-    if [ "$guessed_shell" == "zsh" ]; then return 0; else return 1; fi
+is_zsh_shell() {
+    [[ "$guessed_shell" == "zsh" ]]
+}
+
+is_fish_shell() {
+    [[ "$guessed_shell" == "fish" ]]
 }
 
 
@@ -40,33 +46,15 @@ eval "$(rbenv init -)"
 #### tmuxinator --------------------------------------------------------------
 export EDITOR="vim"
 
-if is_bash_shell; then
-    source $HOME/.bin/tmuxinator.sh
-elif is_zsh_shell; then
+if is_zsh_shell; then
     source $HOME/.bin/tmuxinator.zsh
 else
-    # Fallback for future compatibility
     source $HOME/.bin/tmuxinator.sh
 fi
 
 #### Node Version Manager ----------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-if is_zsh_shell; then
-    # Calling nvm use automatically in a directory with a .nvmrc file
-    autoload -U add-zsh-hook
-    load-nvmrc() {
-       if [[ -f .nvmrc && -r .nvmrc ]]; then
-         nvm use
-       elif [[ $(nvm version) != $(nvm version default)  ]]; then
-         echo "Reverting to nvm default version"
-         nvm use default
-       fi
-                       }
-    add-zsh-hook chpwd load-nvmrc
-    load-nvmrc
-fi
 
 #### Added by the Heroku Toolbelt --------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -110,8 +98,7 @@ export CARGO_HOME="$HOME/.cargo"
 
 #### Django ------------------------------------------------------------------
 if is_zsh_shell; then
-    autoload -U bashcompinit
-    bashcompinit
+    autoload -U bashcompinit && bashcompinit
 fi
 
 source $HOME/development/django/extras/django_bash_completion
