@@ -3,14 +3,14 @@
 # Assume "bash" shell by default
 guessed_shell="bash"
 
-guess_shell() {
-    if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+guess_shell(){
+    if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
         # Assume shell is zsh
         guessed_shell="zsh"
-    elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+    elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
         # Assume shell is bash
         guessed_shell="bash"
-    elif [ -n "$($SHELL -c 'echo $FISH_VERSION')" ]; then
+    elif [ -n "`$SHELL -c 'echo $FISH_VERSION'`" ]; then
         # Assume shell is fish
         guessed_shell="fish"
     fi
@@ -18,15 +18,15 @@ guess_shell() {
 # Try to guess shell
 guess_shell
 
-is_bash_shell() {
+is_bash_shell(){
     [[ "$guessed_shell" == "bash" ]]
 }
 
-is_zsh_shell() {
+is_zsh_shell(){
     [[ "$guessed_shell" == "zsh" ]]
 }
 
-is_fish_shell() {
+is_fish_shell(){
     [[ "$guessed_shell" == "fish" ]]
 }
 
@@ -54,11 +54,14 @@ fi
 
 #### Node Version Manager ----------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# FIXME: Startup delay
+# https://github.com/creationix/nvm/issues/860
+# https://github.com/creationix/nvm/issues/703
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 
 #### Added by the Heroku Toolbelt --------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
-
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 #### Python pip user binaries ------------------------------------------------
@@ -76,8 +79,8 @@ export VIRTUALENVWRAPPER_PYTHON=`which python`
 #### graphical login, and this in turn allows git-credential-gnome-keyring
 #### to talk to the main gnome-keyring-daemon instance.
 if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
-    if [[ -f ~/.dbus/session-bus/$(dbus-uuidgen --get)-0 ]]; then
-        source ~/.dbus/session-bus/$(dbus-uuidgen --get)-0
+    if [[ -f $HOME/.dbus/session-bus/$(dbus-uuidgen --get)-0 ]]; then
+        source $HOME/.dbus/session-bus/$(dbus-uuidgen --get)-0
         export DBUS_SESSION_BUS_ADDRESS
     fi
 fi

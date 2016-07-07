@@ -4,11 +4,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-#### ============================ zsh (1) ====================================
+#### ============================== zsh  =====================================
 #### Completions
 fpath=(~/.zsh/completion $fpath)
 
-#### =========================== zsh (2)======================================
 #### Advanced tab-completion
 # Initialize completion for the current session
 autoload -Uz compinit && compinit
@@ -67,6 +66,7 @@ HISTSIZE=2000
 SAVEHIST=2000
 
 #### Styles
+zstyle ':completion:*' rehash true
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
@@ -77,8 +77,8 @@ alias rm='nocorrect rm'
 alias cpi='nocorrect cp -i'
 alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
-#unalias gpt
-#unalias gs
+unalias gpt
+unalias gs
 
 #### ============================ ssebastianj ================================
 source ~/.commonrc
