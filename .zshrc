@@ -58,7 +58,7 @@ setopt C_BASES
 ## Shell State
 
 ## Zle
-bindkey -v
+# bindkey -v
 
 #### History
 HISTFILE=~/.histfile
