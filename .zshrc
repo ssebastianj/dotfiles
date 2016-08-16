@@ -71,14 +71,14 @@ zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 #### Aliases
+unalias gpt
+unalias gs
 alias cp='nocorrect cp'
 alias mv='nocorrect mv'
 alias rm='nocorrect rm'
 alias cpi='nocorrect cp -i'
 alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
-unalias gpt
-unalias gs
 
 #### ============================ ssebastianj ================================
 source ~/.commonrc
