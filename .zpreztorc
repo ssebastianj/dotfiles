@@ -72,6 +72,11 @@ zstyle ':prezto:load' pmodule \
 # zstyle ':prezto:module:gnu-utility' prefix 'g'
 
 #
+# Utility
+#
+zstyle ':prezto:module:utility:diff' color 'no'
+
+#
 # History Substring Search
 #
 
