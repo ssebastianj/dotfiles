@@ -139,6 +139,18 @@ Plug 'Shougo/neocomplete.vim'
 " Go Extra
 Plug 'vim-jp/vim-go-extra'
 
+" Google YAPF
+Plug 'pignacio/vim-yapf-format'
+
+"let yapf_vim_path = expand('~/.vim/autoload/yapf.vim')
+
+"if !filereadable(yapf_vim_path)
+"    echo "Installing vim-yapf..."
+"    echo ""
+"    silent !mkdir -p ~/.vim/autoload
+"    silent !curl -fLo ~/.vim/autoload/yapf.vim --create-dirs https://raw.githubusercontent.com/google/yapf/master/plugins/yapf.vim 
+"endif
+
 " Plugs from vim-scripts repos:
 " ----------------------------------------------------------------------------
 
@@ -275,6 +287,10 @@ endif
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
+
+" More natural split opening
+set splitbelow
+set splitright
 
 " ============================================================================
 " Plugins settings and mappings
@@ -564,3 +580,10 @@ map <leader>r :call RenameFile()<cr>
 set hidden
 let g:racer_cmd="$HOME/Development/racer/target/release/racer"
 let $RUST_SRC_PATH="$HOME/Development/rust/src/"
+
+" Google YAPF
+let g:yapf_format_allow_out_of_range_changes = 1
+let g:yapf_format_move_to_error = 1
+map <C-Y> :YapfFullFormat<CR>
+imap <C-Y> <ESC>:YapfFormat<CR>i
+vmap <C-Y> :YapfFormat<CR>
