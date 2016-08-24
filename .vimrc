@@ -99,14 +99,14 @@ Plug 'motemen/git-vim'
 " Vastly improved Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
 
-" Rust Auto-Complete-er
-Plug 'phildawes/racer'
-
-" Consoles as buffers
-Plug 'rosenfeld/conque-term'
+" Rust Racer 
+Plug 'racer-rust/vim-racer'
 
 " Rust support
 Plug 'rust-lang/rust.vim'
+
+" Consoles as buffers
+Plug 'rosenfeld/conque-term'
 
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
@@ -578,8 +578,8 @@ map <leader>r :call RenameFile()<cr>
 
 " Rust Auto Complete-Er config
 set hidden
-let g:racer_cmd="$HOME/Development/racer/target/release/racer"
-let $RUST_SRC_PATH="$HOME/Development/rust/src/"
+let g:racer_cmd = "$CARGO_HOME/bin/racer"
+let $RUST_SRC_PATH="$RUST_SRC_PATH"
 
 " Google YAPF
 let g:yapf_format_allow_out_of_range_changes = 1
