@@ -4,13 +4,13 @@
 guessed_shell="bash"
 
 guess_shell(){
-    if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+    if [ -n "$ZSH_VERSION" ] ; then
         # Assume shell is zsh
         guessed_shell="zsh"
-    elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
+    elif [ -n "$BASH_VERSION" ] ; then
         # Assume shell is bash
         guessed_shell="bash"
-    elif [ -n "`$SHELL -c 'echo $FISH_VERSION'`" ]; then
+    elif [ -n "$FISH_VERSION" ] ; then
         # Assume shell is fish
         guessed_shell="fish"
     fi
@@ -58,7 +58,7 @@ export NVM_DIR="$HOME/.nvm"
 # FIXME: Startup delay
 # https://github.com/creationix/nvm/issues/860
 # https://github.com/creationix/nvm/issues/703
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
 
 #### Added by the Heroku Toolbelt --------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
