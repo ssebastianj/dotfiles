@@ -61,7 +61,7 @@ setopt C_BASES
 # bindkey -v
 
 #### History
-HISTFILE=~/.histfile
+HISTFILE="~/.histfile"
 HISTSIZE=2000
 SAVEHIST=2000
 
@@ -81,4 +81,6 @@ alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
 
 #### ============================ ssebastianj ================================
-source ~/.commonrc
+if [[ -s "$HOME/.commonrc" ]]; then
+  source "$HOME/.commonrc"
+fi

@@ -4,13 +4,13 @@
 guessed_shell="bash"
 
 guess_shell(){
-    if [ -n "$ZSH_VERSION" ] ; then
+    if [ -n "$ZSH_VERSION" ]; then
         # Assume shell is zsh
         guessed_shell="zsh"
-    elif [ -n "$BASH_VERSION" ] ; then
+    elif [ -n "$BASH_VERSION" ]; then
         # Assume shell is bash
         guessed_shell="bash"
-    elif [ -n "$FISH_VERSION" ] ; then
+    elif [ -n "$FISH_VERSION" ]; then
         # Assume shell is fish
         guessed_shell="fish"
     fi
@@ -34,7 +34,7 @@ is_fish_shell(){
 #### ============================ ssebastianj ================================
 
 #### Aliases -----------------------------------------------------------------
-source $HOME/.aliases
+[ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 #### Root dir for development purposes ---------------------------------------
 export DEVDIR="$HOME/development"
@@ -47,9 +47,9 @@ eval "$(rbenv init -)"
 export EDITOR="vim"
 
 if is_zsh_shell; then
-    source $HOME/.bin/tmuxinator.zsh
+    [ -s "$HOME/.bin/tmuxinator.zsh" ] && source "$HOME/.bin/tmuxinator.zsh"
 else
-    source $HOME/.bin/tmuxinator.sh
+    [ -s "$HOME/.bin/tmuxinator.bash" ] && source "$HOME/.bin/tmuxinator.bash"
 fi
 
 #### Node Version Manager ----------------------------------------------------
@@ -62,16 +62,15 @@ export NVM_DIR="$HOME/.nvm"
 
 #### Added by the Heroku Toolbelt --------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 #### Python pip user binaries ------------------------------------------------
 export PATH="$HOME/.local/bin:$PATH"
 
 #### Virtualenvwrapper -------------------------------------------------------
 export WORKON_HOME="$DEVDIR/.virtualenvs"
-export PROJECT_HOME=$DEVDIR
-export VIRTUALENVWRAPPER_PYTHON=`which python`
-# source `which virtualenvwrapper.sh`
+export PROJECT_HOME="$DEVDIR"
+export VIRTUALENVWRAPPER_PYTHON="`which python`"
+# source "`which virtualenvwrapper.sh`"
 
 #### -------------------------------------------------------------------------
 #### Taken from "https://marklodato.github.io/2013/10/25/github-two-factor-and-gnome-keyring.html"
@@ -88,6 +87,7 @@ fi
 #### Golang ------------------------------------------------------------------
 export GOPATH="$DEVDIR/gocode"
 export PATH="$PATH:$GOPATH/bin"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 #### Git ---------------------------------------------------------------------
 export PATH="$HOME/.git-contrib:$PATH"
@@ -96,12 +96,12 @@ export PATH="$HOME/.git-contrib:$PATH"
 export RUST_SRC_PATH="$DEVDIR/rust/src"
 export CARGO_HOME="$HOME/.cargo"
 
-#### Docker Machine ----------------------------------------------------------
-#PS1="$PS1$(__docker_machine_ps1)"
-
 #### Django ------------------------------------------------------------------
-if is_zsh_shell; then
-    autoload -U bashcompinit && bashcompinit
-fi
+export DJANGO_SRC_PATH="$DEVDIR/django"
+if [[ -d "$DJANGO_SRC_PATH" ]]; then
+    if is_zsh_shell; then
+        autoload -U bashcompinit && bashcompinit
+    fi
 
-source $HOME/development/django/extras/django_bash_completion
+    source "$DJANGO_SRC_PATH/extras/django_bash_completion"
+fi
