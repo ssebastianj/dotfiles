@@ -8,15 +8,13 @@ fi
 #### Completions
 fpath=(~/.zsh/completion $fpath)
 
-#### Advanced tab-completion
-# Initialize completion for the current session
+## Initialize completion for the current session
 autoload -Uz compinit && compinit
 
-#### Prompts
-# Initialize advanced prompt support
+## Initialize advanced prompt support
 autoload -Uz promptinit && promptinit
 
-#### Colors
+## Initialize colors support
 autoload -Uz colors && colors
 
 #### Options
@@ -62,13 +60,13 @@ setopt C_BASES
 
 #### History
 HISTFILE="~/.histfile"
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=10000
+SAVEHIST=10000
 
 #### Styles
 zstyle ':completion:*' rehash true
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
 
 #### Aliases
 unalias gpt
@@ -81,6 +79,4 @@ alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
 
 #### ============================ ssebastianj ================================
-if [[ -s "$HOME/.commonrc" ]]; then
-  source "$HOME/.commonrc"
-fi
+[[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"

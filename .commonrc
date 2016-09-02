@@ -3,14 +3,14 @@
 # Assume "bash" shell by default
 guessed_shell="bash"
 
-guess_shell(){
-    if [ -n "$ZSH_VERSION" ]; then
+guess_shell() {
+    if [[ -n "$ZSH_VERSION" ]]; then
         # Assume shell is zsh
         guessed_shell="zsh"
-    elif [ -n "$BASH_VERSION" ]; then
+    elif [[ -n "$BASH_VERSION" ]]; then
         # Assume shell is bash
         guessed_shell="bash"
-    elif [ -n "$FISH_VERSION" ]; then
+    elif [[ -n "$FISH_VERSION" ]]; then
         # Assume shell is fish
         guessed_shell="fish"
     fi
@@ -18,38 +18,39 @@ guess_shell(){
 # Try to guess shell
 guess_shell
 
-is_bash_shell(){
+is_bash_shell() {
     [[ "$guessed_shell" == "bash" ]]
 }
 
-is_zsh_shell(){
+is_zsh_shell() {
     [[ "$guessed_shell" == "zsh" ]]
 }
 
-is_fish_shell(){
+is_fish_shell() {
     [[ "$guessed_shell" == "fish" ]]
 }
-
 
 #### ============================ ssebastianj ================================
 
 #### Aliases -----------------------------------------------------------------
-[ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
+[[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 #### Root dir for development purposes ---------------------------------------
 export DEVDIR="$HOME/development"
 
 #### rbenv -------------------------------------------------------------------
+export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+[[ -d "$RBENV_ROOT" ]] && eval "$(rbenv init -)"
 
 #### tmuxinator --------------------------------------------------------------
 export EDITOR="vim"
 
-if is_zsh_shell; then
-    [ -s "$HOME/.bin/tmuxinator.zsh" ] && source "$HOME/.bin/tmuxinator.zsh"
-else
-    [ -s "$HOME/.bin/tmuxinator.bash" ] && source "$HOME/.bin/tmuxinator.bash"
+if [[ -s "$HOME/.bin/tmuxinator.zsh" && is_zsh_shell ]]; then
+    source "$HOME/.bin/tmuxinator.zsh"
+else 
+    [[ -s "$HOME/.bin/tmuxinator.bash" ]] && source "$HOME/.bin/tmuxinator.bash"
 fi
 
 #### Node Version Manager ----------------------------------------------------
@@ -58,7 +59,7 @@ export NVM_DIR="$HOME/.nvm"
 # FIXME: Startup delay
 # https://github.com/creationix/nvm/issues/860
 # https://github.com/creationix/nvm/issues/703
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" # This loads nvm
 
 #### Added by the Heroku Toolbelt --------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -69,24 +70,22 @@ export PATH="$HOME/.local/bin:$PATH"
 #### Virtualenvwrapper -------------------------------------------------------
 export WORKON_HOME="$DEVDIR/.virtualenvs"
 export PROJECT_HOME="$DEVDIR"
-export VIRTUALENVWRAPPER_PYTHON="`which python`"
-# source "`which virtualenvwrapper.sh`"
 
-#### -------------------------------------------------------------------------
-#### Taken from "https://marklodato.github.io/2013/10/25/github-two-factor-and-gnome-keyring.html"
-#### Tell D-Bus to use the instance that was started on the machine'so
-#### graphical login, and this in turn allows git-credential-gnome-keyring
-#### to talk to the main gnome-keyring-daemon instance.
-if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
-    if [[ -f $HOME/.dbus/session-bus/$(dbus-uuidgen --get)-0 ]]; then
-        source $HOME/.dbus/session-bus/$(dbus-uuidgen --get)-0
-        export DBUS_SESSION_BUS_ADDRESS
+#### Django ------------------------------------------------------------------
+export DJANGO_SRC_PATH="$DEVDIR/django"
+
+if [[ -d "$DJANGO_SRC_PATH" ]]; then
+    if is_zsh_shell; then
+        autoload -Uz bashcompinit && bashcompinit
     fi
+
+    source "$DJANGO_SRC_PATH/extras/django_bash_completion"
 fi
 
 #### Golang ------------------------------------------------------------------
 export GOPATH="$DEVDIR/gocode"
 export PATH="$PATH:$GOPATH/bin"
+
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 #### Git ---------------------------------------------------------------------
@@ -95,13 +94,4 @@ export PATH="$HOME/.git-contrib:$PATH"
 #### Rust --------------------------------------------------------------------
 export RUST_SRC_PATH="$DEVDIR/rust/src"
 export CARGO_HOME="$HOME/.cargo"
-
-#### Django ------------------------------------------------------------------
-export DJANGO_SRC_PATH="$DEVDIR/django"
-if [[ -d "$DJANGO_SRC_PATH" ]]; then
-    if is_zsh_shell; then
-        autoload -U bashcompinit && bashcompinit
-    fi
-
-    source "$DJANGO_SRC_PATH/extras/django_bash_completion"
-fi
+export PATH="$CARGO_HOME/bin:$PATH"
