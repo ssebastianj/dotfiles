@@ -63,14 +63,7 @@ HISTFILE="~/.histfile"
 HISTSIZE=10000
 SAVEHIST=10000
 
-#### Styles
-zstyle ':completion:*' rehash true
-zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
-
 #### Aliases
-unalias gpt
-unalias gs
 alias cp='nocorrect cp'
 alias mv='nocorrect mv'
 alias rm='nocorrect rm'
@@ -78,5 +71,12 @@ alias cpi='nocorrect cp -i'
 alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
 
+#### Zstyle
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
+
 #### ============================ ssebastianj ================================
-[[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"
+#[[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"

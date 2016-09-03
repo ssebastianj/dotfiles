@@ -4,12 +4,12 @@
 guessed_shell="bash"
 
 guess_shell() {
-    if [[ -n "$ZSH_VERSION" ]]; then
-        # Assume shell is zsh
-        guessed_shell="zsh"
-    elif [[ -n "$BASH_VERSION" ]]; then
+    if [[ -n "$BASH_VERSION" ]]; then
         # Assume shell is bash
         guessed_shell="bash"
+    elif [[ -n "$ZSH_VERSION" ]]; then
+        # Assume shell is zsh
+        guessed_shell="zsh"
     elif [[ -n "$FISH_VERSION" ]]; then
         # Assume shell is fish
         guessed_shell="fish"
