@@ -9,9 +9,10 @@
     email      = ssebastianj@gmail.com
 [gui]
     spellingdictionary = none
+	encoding = utf-8
 [i18n]
-    commitEncoding    = utf-8
-    logOutputEncoding = utf-8
+	commitEncoding = utf-8
+	logOutputEncoding = utf-8
 [alias]
     ac    = !git add -A && git commit
     cm    = commit                                            # Commit
@@ -69,3 +70,5 @@
     diff = diff-highlight | less
 [interactive]
     diffFilter = diff-highlight
+[http]
+	cookiefile = /home/sebastian/.gitcookies
