@@ -1,33 +1,36 @@
 #### =========================== Functions ===================================
 
 # Assume "bash" shell by default
-guessed_shell="bash"
+# 1 = bash
+# 2 = zsh
+# 3 = fish
+guessed_shell=1
 
 guess_shell() {
     if [[ -n "$BASH_VERSION" ]]; then
         # Assume shell is bash
-        guessed_shell="bash"
+        guessed_shell=1
     elif [[ -n "$ZSH_VERSION" ]]; then
         # Assume shell is zsh
-        guessed_shell="zsh"
+        guessed_shell=2
     elif [[ -n "$FISH_VERSION" ]]; then
         # Assume shell is fish
-        guessed_shell="fish"
+        guessed_shell=3
     fi
 }
 # Try to guess shell
 guess_shell
 
 is_bash_shell() {
-    [[ "$guessed_shell" == "bash" ]]
+    [[ "$guessed_shell" == 1 ]]
 }
 
 is_zsh_shell() {
-    [[ "$guessed_shell" == "zsh" ]]
+    [[ "$guessed_shell" == 2 ]]
 }
 
 is_fish_shell() {
-    [[ "$guessed_shell" == "fish" ]]
+    [[ "$guessed_shell" == 3 ]]
 }
 
 #### ============================ ssebastianj ================================
