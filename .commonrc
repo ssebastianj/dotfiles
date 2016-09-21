@@ -4,33 +4,33 @@
 # 1 = bash
 # 2 = zsh
 # 3 = fish
-guessed_shell=1
+guessed_shell="1"
 
 guess_shell() {
     if [[ -n "$BASH_VERSION" ]]; then
         # Assume shell is bash
-        guessed_shell=1
+        guessed_shell="1"
     elif [[ -n "$ZSH_VERSION" ]]; then
         # Assume shell is zsh
-        guessed_shell=2
+        guessed_shell="2"
     elif [[ -n "$FISH_VERSION" ]]; then
         # Assume shell is fish
-        guessed_shell=3
+        guessed_shell="3"
     fi
 }
 # Try to guess shell
 guess_shell
 
 is_bash_shell() {
-    [[ "$guessed_shell" == 1 ]]
+    [[ "$guessed_shell" == "1" ]]
 }
 
 is_zsh_shell() {
-    [[ "$guessed_shell" == 2 ]]
+    [[ "$guessed_shell" == "2" ]]
 }
 
 is_fish_shell() {
-    [[ "$guessed_shell" == 3 ]]
+    [[ "$guessed_shell" == "3" ]]
 }
 
 #### ============================ ssebastianj ================================
@@ -45,6 +45,7 @@ export DEVDIR="$HOME/development"
 export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
+# FIXME: Adds startup delay
 [[ -d "$RBENV_ROOT" ]] && eval "$(rbenv init -)"
 
 #### tmuxinator --------------------------------------------------------------
@@ -59,10 +60,36 @@ fi
 #### Node Version Manager ----------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
 
-# FIXME: Startup delay
+# FIXME: Adds startup delay
 # https://github.com/creationix/nvm/issues/860
 # https://github.com/creationix/nvm/issues/703
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+ 
+# FIXME: Just trying lazy loading nvm.
+# Taken from: https://github.com/creationix/nvm/issues/860#issuecomment-242157535
+# Taken from: https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
+
+lazynvm() {
+  unset -f nvm node npm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+nvm() {
+  lazynvm 
+  nvm $@
+}
+ 
+node() {
+  lazynvm
+  node $@
+}
+ 
+npm() {
+  lazynvm
+  npm $@
+}
+
 
 #### Added by the Heroku Toolbelt --------------------------------------------
 export PATH="/usr/local/heroku/bin:$PATH"
