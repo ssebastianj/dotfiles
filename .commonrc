@@ -113,10 +113,10 @@ if [[ -d "$DJANGO_SRC_PATH" ]]; then
 fi
 
 #### Golang ------------------------------------------------------------------
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
 export GOPATH="$DEVDIR/gocode"
 export PATH="$PATH:$GOPATH/bin"
-
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 #### Git ---------------------------------------------------------------------
 export PATH="$HOME/.git-contrib:$PATH"
