@@ -39,11 +39,11 @@ set showtabline=2                       " Show tab bar
 set undolevels=1000                     " Number of undo levels
 set backspace=indent,eol,start          " Backspace behavior
 
-set foldenable                          " Enable code folding
+set nofoldenable                        " Code folding
 set foldmethod=indent                   " Fold based on indent level
 
 set hidden                              " Keep more info in memory to speed things up
-set history=128                         " Set number of history levels
+set history=1024                        " Set number of history levels
 
 set background=dark                     " Prefer a darker background
 colorscheme evening                     " Set a colorscheme
@@ -64,10 +64,8 @@ set ttimeoutlen=100                     " Time (ms) waited for a key code
 
 set nobackup                            " Don't make a backup before overwriting a file
 set writebackup                         " Make a backup before overwriting a file
-set backupdir=~/.vim-tmp,~/.tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,/var/tmp,/tmp
-
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 "#fts ================================ Filetypes Settings ========================================
 
