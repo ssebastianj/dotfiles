@@ -42,12 +42,11 @@ is_fish_shell() {
 export DEVDIR="$HOME/development"
 
 #### rbenv -------------------------------------------------------------------
-export RBENV_ROOT="$HOME/.rbenv"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
 # FIXME: Adds startup delay
 lazyrbenv() {
     unset -f rbenv
+    export RBENV_ROOT="$HOME/.rbenv"
+    export PATH="$HOME/.rbenv/bin:$PATH"
     [[ -d "$RBENV_ROOT" ]] && eval "$(rbenv init -)"
 }
 
