@@ -46,7 +46,15 @@ export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 # FIXME: Adds startup delay
-[[ -d "$RBENV_ROOT" ]] && eval "$(rbenv init -)"
+lazyrbenv() {
+    unset -f rbenv
+    [[ -d "$RBENV_ROOT" ]] && eval "$(rbenv init -)"
+}
+
+rbenv() {
+    lazyrbenv
+    rbenv $@
+}
 
 #### tmuxinator --------------------------------------------------------------
 export EDITOR="vim"
