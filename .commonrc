@@ -52,7 +52,7 @@ lazyrbenv() {
 
 rbenv() {
     lazyrbenv
-    rbenv $@
+    rbenv "$@"
 }
 
 #### tmuxinator --------------------------------------------------------------
@@ -84,17 +84,17 @@ lazynvm() {
 
 nvm() {
   lazynvm 
-  nvm $@
+  nvm "$@"
 }
  
 node() {
   lazynvm
-  node $@
+  node "$@"
 }
  
 npm() {
   lazynvm
-  npm $@
+  npm "$@"
 }
 
 

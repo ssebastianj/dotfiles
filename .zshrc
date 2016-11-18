@@ -59,9 +59,9 @@ setopt C_BASES
 # bindkey -v
 
 #### History
-HISTFILE="~/.histfile"
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTFILE=~/.histfile
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 #### Aliases
 alias cp='nocorrect cp'
