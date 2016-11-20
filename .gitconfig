@@ -15,23 +15,23 @@
 	logOutputEncoding = utf-8
 [alias]
     ac    = !git add -A && git commit
-    cm    = commit                                            # Commit
+    cm    = commit                                           # Commit
     cam   = !git add -A && git commit -m                     # Add & Commit
-    co    = checkout                                          # Checkout
+    co    = checkout                                         # Checkout
     cob   = checkout -b                                      # Create branch and checkout
     fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@ | sed \"s/fixup\\! //\")\"' -
     ri    = rebase --interactive --autosquash
     st    = status -sb
     tags  = tag -l
-    save  = !git add -A && gti commit -m 'SAVEPOINT'        # Adds all changes including untracked
-                                                           # files and creates a commit.
+    save  = !git add -A && gti commit -m 'SAVEPOINT'         # Adds all changes including untracked
+                                                             # files and creates a commit.
     wip   = !git add -u && git commit -m 'WIP'               # Commits tracked changes (Work In Progress)
-    undo  = reset HEAD~1 --mixed                            # Resets the previous commit.
-                                                           # Keeps all changes from that commit in the
-                                                           # working directory.
-    amend    = commit -a --amend                              # Modify the previous commit
-    branches = branch -a                                   # Show all the branches
-    remotes  = remote -v                                    # Show all the remotes
+    undo  = reset HEAD~1 --mixed                             # Resets the previous commit.
+                                                             # Keeps all changes from that commit in the
+                                                             # working directory.
+    amend    = commit -a --amend                             # Modify the previous commit
+    branches = branch -a                                     # Show all the branches
+    remotes  = remote -v                                     # Show all the remotes
     lg       = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     pushom   = push origin master
     pullom   = pull origin master
@@ -39,7 +39,7 @@
     pullhm   = pull heroku master
     unstage  = reset HEAD --
     last     = log -1 HEAD
-    ec       = config --global -e                                # Open Git global config on default editor
+    ec       = config --global -e                            # Open Git global config on default editor
     # Pull changes from remote. If any local commits exists, rebase them.
     # Then, removes remote-tracking branches that no longer exist on the remote.
     up       = !git pull --rebase --prune $@ && git submodule update --init --recursive
