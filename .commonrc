@@ -107,6 +107,8 @@ export PATH="$HOME/.local/bin:$PATH"
 #### Virtualenvwrapper -------------------------------------------------------
 export WORKON_HOME="$DEVDIR/.virtualenvs"
 export PROJECT_HOME="$DEVDIR"
+export VIRTUALENVWRAPPER_SCRIPT="$HOME/.local/bin/virtualenvwrapper.sh"
+[[ -s "$HOME/.local/bin/virtualenvwrapper_lazy.sh" ]] && . "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 
 #### Django ------------------------------------------------------------------
 export DJANGO_SRC_PATH="$DEVDIR/django"
