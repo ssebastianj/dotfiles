@@ -58,12 +58,12 @@
 [merge]
     tool = meld
 [mergetool "meld"]
-    cmd           = meld '$BASE $LOCAL $REMOTE $MERGED'
+    cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE
     trustExitCode = false
 [diff]
     tool = meld
 [difftool "meld"]
-    cmd = meld '$LOCAL $REMOTE'
+    cmd = meld "$LOCAL $REMOTE"
 [pager]
     log  = diff-highlight | less
     show = diff-highlight | less
