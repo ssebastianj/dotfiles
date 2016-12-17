@@ -58,7 +58,7 @@
 [merge]
     tool = meld
 [mergetool "meld"]
-    cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE
+    cmd = meld $LOCAL $BASE $REMOTE --output $MERGED --diff $BASE $LOCAL --diff $BASE $REMOTE --auto-merge
     trustExitCode = false
 [diff]
     tool = meld
