@@ -19,6 +19,7 @@
     cam   = !git add -A && git commit -m                     # Add & Commit
     co    = checkout                                         # Checkout
     cob   = checkout -b                                      # Create branch and checkout
+	dsf   = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
     fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@ | sed \"s/fixup\\! //\")\"' -
     ri    = rebase --interactive --autosquash
     st    = status -sb
@@ -72,3 +73,4 @@
     diffFilter = diff-highlight
 [http]
 	cookiefile = /home/sebastian/.gitcookies
+
