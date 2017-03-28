@@ -60,7 +60,7 @@ export EDITOR="vim"
 
 if [[ -s "$HOME/.bin/tmuxinator.zsh" && is_zsh_shell ]]; then
     source "$HOME/.bin/tmuxinator.zsh"
-else 
+else
     [[ -s "$HOME/.bin/tmuxinator.bash" ]] && source "$HOME/.bin/tmuxinator.bash"
 fi
 
@@ -71,7 +71,7 @@ export NVM_DIR="$HOME/.nvm"
 # https://github.com/creationix/nvm/issues/860
 # https://github.com/creationix/nvm/issues/703
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
- 
+
 # FIXME: Just trying lazy loading nvm.
 # Taken from: https://github.com/creationix/nvm/issues/860#issuecomment-242157535
 # Taken from: https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
@@ -83,15 +83,15 @@ lazynvm() {
 }
 
 nvm() {
-  lazynvm 
+  lazynvm
   nvm "$@"
 }
- 
+
 node() {
   lazynvm
   node "$@"
 }
- 
+
 npm() {
   lazynvm
   npm "$@"
@@ -134,3 +134,14 @@ export PATH="$HOME/.git-contrib:$PATH"
 export RUST_SRC_PATH="$DEVDIR/rust/src"
 export CARGO_HOME="$HOME/.cargo"
 export PATH="$CARGO_HOME/bin:$PATH"
+
+#### Perl
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+
+#### Haskell
+export PATH="$HOME/.cabal/bin:$PATH"
+
