@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 #### =========================== Functions ===================================
 
 # Assume "bash" shell by default
@@ -36,6 +38,7 @@ is_fish_shell() {
 #### ============================ ssebastianj ================================
 
 #### Aliases -----------------------------------------------------------------
+# shellcheck disable=SC1090
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 #### Root dir for development purposes ---------------------------------------
@@ -59,8 +62,10 @@ rbenv() {
 export EDITOR="vim"
 
 if [[ -s "$HOME/.bin/tmuxinator.zsh" && is_zsh_shell ]]; then
+    # shellcheck disable=SC1090
     source "$HOME/.bin/tmuxinator.zsh"
 else
+    # shellcheck disable=SC1090
     [[ -s "$HOME/.bin/tmuxinator.bash" ]] && source "$HOME/.bin/tmuxinator.bash"
 fi
 
@@ -79,6 +84,7 @@ export NVM_DIR="$HOME/.nvm"
 lazynvm() {
   unset -f nvm node npm
   export NVM_DIR=~/.nvm
+  # shellcheck disable=SC1090
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 
@@ -108,6 +114,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export WORKON_HOME="$DEVDIR/.virtualenvs"
 export PROJECT_HOME="$DEVDIR"
 export VIRTUALENVWRAPPER_SCRIPT="$HOME/.local/bin/virtualenvwrapper.sh"
+# shellcheck disable=SC1090
 [[ -s "$HOME/.local/bin/virtualenvwrapper_lazy.sh" ]] && . "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 
 #### Django ------------------------------------------------------------------
@@ -118,10 +125,12 @@ if [[ -d "$DJANGO_SRC_PATH" ]]; then
         autoload -Uz bashcompinit && bashcompinit
     fi
 
+    # shellcheck disable=SC1090
     source "$DJANGO_SRC_PATH/extras/django_bash_completion"
 fi
 
 #### Golang ------------------------------------------------------------------
+# shellcheck disable=SC1090
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 export GOPATH="$DEVDIR/gocode"
@@ -139,7 +148,7 @@ export PATH="$CARGO_HOME/bin:$PATH"
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MB_OPT=(--install_base "$HOME/perl5"); export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 #### Haskell
