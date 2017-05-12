@@ -41,8 +41,6 @@ Plug 'fatih/vim-go'
 
 " Drag visual blocks arround
 Plug 'fisadev/dragvisuals.vim'
-" Terminal Vim with 256 colors colorscheme
-Plug 'fisadev/fisa-vim-colorscheme'
 " Pending tasks list
 Plug 'fisadev/FixedTaskList.vim'
 " Extension to ctrlp, for fuzzy command finder
@@ -140,7 +138,7 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'vim-jp/vim-go-extra'
 
 " Google YAPF
-Plug 'pignacio/vim-yapf-format'
+"Plug 'pignacio/vim-yapf-format'
 
 "let yapf_vim_path = expand('~/.vim/autoload/yapf.vim')
 
@@ -155,13 +153,11 @@ Plug 'pignacio/vim-yapf-format'
 " ----------------------------------------------------------------------------
 
 " Search results counter
-Plug 'IndexedSearch'
+Plug 'vim-scripts/IndexedSearch'
 " XML/HTML tags navigation
-Plug 'matchit.zip'
-" Gvim colorscheme
-Plug 'Wombat'
+Plug 'vim-scripts/matchit.zip'
 " Yank history navigation
-Plug 'YankRing.vim'
+Plug 'vim-scripts/YankRing.vim'
 
 call plug#end()
 
@@ -176,6 +172,10 @@ endif
 " ============================================================================
 " Vim settings and mappings
 " You can edit them as you wish
+
+"Keypress timeouts
+set timeoutlen=1000
+set ttimeoutlen=0
 
 " allow plugins by file type (required for plugins!)
 filetype plugin on
@@ -246,19 +246,6 @@ nmap ,r :RecurGrepFast
 " mappings to call them with the default word as search text
 nmap ,wR :RecurGrep <cword><CR>
 nmap ,wr :RecurGrepFast <cword><CR>
-
-" use 256 colors when possible
-if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
-     let &t_Co = 256
- else
-     background=dark
-     colorscheme base16-eighties
- endif
-
-" colors for gvim
-if has('gui_running')
-    colorscheme base16-eighties
-endif
 
 " when scrolling, keep cursor 3 lines away from screen border
 set scrolloff=3
