@@ -50,6 +50,7 @@
     sdiff    = !git diff && git submodule foreach 'git diff'
     spush    = push --recurse-submodules=on-demand
     supdate  = submodule update --remote --merge
+    mr       = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 [help]
     autocorrect = 1
 [core]
