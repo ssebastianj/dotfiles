@@ -1,12 +1,12 @@
 #### ============================ zprezto ====================================
-## Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    # shellcheck source=/dev/null
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 #### ============================== zsh  =====================================
-#### Completions
-fpath=(~/.zsh/completion $fpath)
+#### Add completions
+fpath=(~/.zsh/completion "${fpath[@]}")
 
 ## Initialize completion for the current session
 autoload -Uz compinit && compinit
@@ -79,4 +79,5 @@ zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
 
 #### ============================ ssebastianj ================================
+# shellcheck source=/dev/null
 [[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"
