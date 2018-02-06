@@ -6,68 +6,82 @@
 # 1 = bash
 # 2 = zsh
 # 3 = fish
-guessed_shell="1"
+guessed_shell='1'
 
 guess_shell() {
     if [[ -n "$BASH_VERSION" ]]; then
         # Assume shell is bash
-        guessed_shell="1"
+        guessed_shell='1'
     elif [[ -n "$ZSH_VERSION" ]]; then
         # Assume shell is zsh
-        guessed_shell="2"
+        guessed_shell='2'
     elif [[ -n "$FISH_VERSION" ]]; then
         # Assume shell is fish
-        guessed_shell="3"
+        guessed_shell='3'
     fi
 }
 # Try to guess shell
 guess_shell
 
 is_bash_shell() {
-    [[ "$guessed_shell" == "1" ]]
+    [[ "$guessed_shell" == '1' ]]
 }
 
 is_zsh_shell() {
-    [[ "$guessed_shell" == "2" ]]
+    [[ "$guessed_shell" == '2' ]]
 }
 
 is_fish_shell() {
-    [[ "$guessed_shell" == "3" ]]
+    [[ "$guessed_shell" == '3' ]]
 }
 
 #### ============================ ssebastianj ================================
 
 #### Aliases -----------------------------------------------------------------
-# shellcheck disable=SC1090
+# shellcheck source=/dev/null
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 #### Root dir for development purposes ---------------------------------------
 export DEVDIR="$HOME/development"
 
 #### rbenv -------------------------------------------------------------------
-# FIXME: Adds startup delay
 lazyrbenv() {
     unset -f rbenv
     export RBENV_ROOT="$HOME/.rbenv"
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    [[ -d "$RBENV_ROOT" ]] && eval "$(rbenv init -)"
+    export PATH="$RBENV_ROOT/bin:$PATH"
+    [[ -d "$RBENV_ROOT" ]] && rbenv init -
 }
 
 rbenv() {
-    lazyrbenv
-    rbenv "$@"
+    lazyrbenv && rbenv "$@"
 }
 
 #### tmuxinator --------------------------------------------------------------
 export EDITOR="vim"
 
-if [[ -s "$HOME/.bin/tmuxinator.zsh" && is_zsh_shell ]]; then
-    # shellcheck disable=SC1090
-    source "$HOME/.bin/tmuxinator.zsh"
-else
-    # shellcheck disable=SC1090
-    [[ -s "$HOME/.bin/tmuxinator.bash" ]] && source "$HOME/.bin/tmuxinator.bash"
-fi
+case "$guessed_shell" in
+    '2')
+        # zsh
+        if [[ -s "$HOME/.bin/tmuxinator.zsh" ]]; then
+            # shellcheck source=/dev/null
+            source "$HOME/.bin/tmuxinator.zsh"
+        fi
+        ;;
+    '3')
+        # fish
+        if [[ -s "$HOME/.bin/tmuxinator.fish" ]]; then
+            cp --update --backup "$HOME/.bin/tmuxinator.fish" "$HOME/.config/fish/completions/"
+        fi
+        ;;
+           
+    *)
+        # bash
+        if [[ -s "$HOME/.bin/tmuxinator.bash" ]]; then
+            # shellcheck source=/dev/null
+            source "$HOME/.bin/tmuxinator.bash"
+        fi
+        ;;
+esac
 
 #### Node Version Manager ----------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
@@ -82,10 +96,10 @@ export NVM_DIR="$HOME/.nvm"
 # Taken from: https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
 
 lazynvm() {
-  unset -f nvm node npm
-  export NVM_DIR=~/.nvm
-  # shellcheck disable=SC1090
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    unset -f nvm node npm
+    export NVM_DIR=~/.nvm
+    # shellcheck source=/dev/null
+    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 
 nvm() {
@@ -103,10 +117,6 @@ npm() {
   npm "$@"
 }
 
-
-#### Added by the Heroku Toolbelt --------------------------------------------
-export PATH="/usr/local/heroku/bin:$PATH"
-
 #### Python pip user binaries ------------------------------------------------
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -114,8 +124,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export WORKON_HOME="$DEVDIR/.virtualenvs"
 export PROJECT_HOME="$DEVDIR"
 export VIRTUALENVWRAPPER_SCRIPT="$HOME/.local/bin/virtualenvwrapper.sh"
-# shellcheck disable=SC1090
-[[ -s "$HOME/.local/bin/virtualenvwrapper_lazy.sh" ]] && . "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
+# shellcheck source=/dev/null
+[[ -s "$HOME/.local/bin/virtualenvwrapper_lazy.sh" ]] && source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 
 #### Django ------------------------------------------------------------------
 export DJANGO_SRC_PATH="$DEVDIR/django"
@@ -125,14 +135,13 @@ if [[ -d "$DJANGO_SRC_PATH" ]]; then
         autoload -Uz bashcompinit && bashcompinit
     fi
 
-    # shellcheck disable=SC1090
+    # shellcheck source=/dev/null
     source "$DJANGO_SRC_PATH/extras/django_bash_completion"
 fi
 
 #### Golang ------------------------------------------------------------------
-# shellcheck disable=SC1090
+# shellcheck source=/dev/null
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
 export GOPATH="$DEVDIR/gocode"
 export PATH="$PATH:$GOPATH/bin"
 
@@ -141,8 +150,8 @@ export PATH="$HOME/.git-contrib:$PATH"
 
 #### Rust --------------------------------------------------------------------
 export RUST_SRC_PATH="$DEVDIR/rust/src"
-export CARGO_HOME="$HOME/.cargo"
-export PATH="$CARGO_HOME/bin:$PATH"
+export RUSTUP_HOME="$HOME/.rustup"
+export PATH="$RUSTUP_HOME/bin:$PATH"
 
 #### Perl
 export PATH="$HOME/perl5/bin${PATH:+:${PATH}}";
@@ -150,7 +159,3 @@ export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}";
 export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}";
 export PERL_MB_OPT=(--install_base "$HOME/perl5");
 export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
-
-#### Haskell
-export PATH="$HOME/.cabal/bin:$PATH"
-
