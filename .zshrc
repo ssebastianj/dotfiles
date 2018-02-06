@@ -35,8 +35,6 @@ setopt APPEND_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 
-## Initilization
-
 ## Input/Output
 unsetopt CORRECT_ALL
 setopt CORRECT
@@ -46,14 +44,8 @@ setopt RM_STAR_WAIT
 setopt MONITOR
 setopt NOTIFY
 
-## Prompting
-
 ## Scripts and Functions
 setopt C_BASES
-
-## Shell Emulation
-
-## Shell State
 
 ## Zle
 # bindkey -v
@@ -73,8 +65,8 @@ alias rmi='nocorrect rm -i'
 
 #### Zstyle
 zstyle ':completion:*' rehash true
-zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' use-cache on
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
 
