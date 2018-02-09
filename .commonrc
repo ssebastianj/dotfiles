@@ -84,22 +84,12 @@ case "$guessed_shell" in
 esac
 
 #### Node Version Manager ----------------------------------------------------
-export NVM_DIR="$HOME/.nvm"
-
-# FIXME: Adds startup delay
-# https://github.com/creationix/nvm/issues/860
-# https://github.com/creationix/nvm/issues/703
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-# FIXME: Just trying lazy loading nvm.
-# Taken from: https://github.com/creationix/nvm/issues/860#issuecomment-242157535
-# Taken from: https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
 
 lazynvm() {
     unset -f nvm node npm
-    export NVM_DIR=~/.nvm
+    export NVM_DIR="$HOME/.nvm"
     # shellcheck source=/dev/null
-    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 
 nvm() {
@@ -140,8 +130,6 @@ if [[ -d "$DJANGO_SRC_PATH" ]]; then
 fi
 
 #### Golang ------------------------------------------------------------------
-# shellcheck source=/dev/null
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 export GOPATH="$DEVDIR/gocode"
 export PATH="$PATH:$GOPATH/bin"
 
@@ -152,10 +140,3 @@ export PATH="$HOME/.git-contrib:$PATH"
 export RUST_SRC_PATH="$DEVDIR/rust/src"
 export RUSTUP_HOME="$HOME/.rustup"
 export PATH="$RUSTUP_HOME/bin:$PATH"
-
-#### Perl
-export PATH="$HOME/perl5/bin${PATH:+:${PATH}}";
-export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}";
-export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}";
-export PERL_MB_OPT=(--install_base "$HOME/perl5");
-export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
