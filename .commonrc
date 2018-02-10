@@ -84,7 +84,6 @@ case "$guessed_shell" in
 esac
 
 #### Node Version Manager ----------------------------------------------------
-
 lazynvm() {
     unset -f nvm node npm
     export NVM_DIR="$HOME/.nvm"
@@ -107,36 +106,29 @@ npm() {
   npm "$@"
 }
 
-#### Python pip user binaries ------------------------------------------------
+#### Python ------------------------------------------------
 export PATH="$HOME/.local/bin:$PATH"
-
-#### Virtualenvwrapper -------------------------------------------------------
 export WORKON_HOME="$DEVDIR/.virtualenvs"
-export PROJECT_HOME="$DEVDIR"
-export VIRTUALENVWRAPPER_SCRIPT="$HOME/.local/bin/virtualenvwrapper.sh"
-# shellcheck source=/dev/null
-[[ -s "$HOME/.local/bin/virtualenvwrapper_lazy.sh" ]] && source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 
 #### Django ------------------------------------------------------------------
-export DJANGO_SRC_PATH="$DEVDIR/django"
+DJANGO_COMPLETION_FILE="$DEVDIR/django/extras/django_bash_completion"
 
-if [[ -d "$DJANGO_SRC_PATH" ]]; then
-    if is_zsh_shell; then
-        autoload -Uz bashcompinit && bashcompinit
-    fi
+if [[ -s "$DJANGO_COMPLETION_FILE" ]]; then
+    is_zsh_shell && autoload -Uz bashcompinit && bashcompinit
 
     # shellcheck source=/dev/null
-    source "$DJANGO_SRC_PATH/extras/django_bash_completion"
+    source "$DJANGO_COMPLETION_FILE"
 fi
+
+#### Git ---------------------------------------------------------------------
+export PATH="$HOME/.git-contrib:$PATH"
 
 #### Golang ------------------------------------------------------------------
 export GOPATH="$DEVDIR/gocode"
 export PATH="$PATH:$GOPATH/bin"
 
-#### Git ---------------------------------------------------------------------
-export PATH="$HOME/.git-contrib:$PATH"
-
 #### Rust --------------------------------------------------------------------
-export RUST_SRC_PATH="$DEVDIR/rust/src"
 export RUSTUP_HOME="$HOME/.rustup"
-export PATH="$RUSTUP_HOME/bin:$PATH"
+export CARGO_HOME="$HOME/.cargo"
+export PATH="$RUSTUP_HOME/bin:$CARGO_HOME/bin:$PATH"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
