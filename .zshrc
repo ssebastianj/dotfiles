@@ -5,8 +5,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 #### ============================== zsh  =====================================
-#### Add completions
-fpath=(~/.zsh/completion "${fpath[@]}")
+#### Add function and completions to search path
+fpath=(
+    "$HOME/.zsh/functions" 
+    "$HOME/.zsh/completions" 
+    "${fpath[@]}"
+)
 
 ## Initialize completion for the current session
 autoload -Uz compinit && compinit
@@ -51,7 +55,7 @@ setopt C_BASES
 # bindkey -v
 
 #### History
-export HISTFILE=~/.histfile
+export HISTFILE="$HOME/.histfile"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
@@ -64,9 +68,9 @@ alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
 
 #### Zstyle
-zstyle ':completion:*' rehash true
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
 zstyle ':completion:*' use-cache on
+zstyle ':completion:*' rehash true
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
 

@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'hairyhenderson/gomplate' 'skrassiev/golang-ffmpeg-sox' 'sndnvaps/docker-golang' 'articulate/articulate-golang' 'intabulas/go-node-glide' 'billyteves/alpine-golang-glide' 'danielfbm/docker-go-libgit2' 'electrotumbao/go-govendor' 'yotpo/grpc' 'toritori0318/ubuntu-golang' 'letalo/golang-gb' 'iotapi322/ffmpeg-golang' 'pallet/golang' 'aegypius/golang' 'metal3d/go' 'onepill/golang-python' 'iwark/golang'
+EO:result
+)}"} )

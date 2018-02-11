@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'php' 'phpmyadmin/phpmyadmin' 'eboraas/apache-php' 'php-zendserver' 'webdevops/php-nginx' 'phpunit/phpunit' 'webdevops/php-apache' 'tetraweb/php' 'webdevops/php' 'chialab/php' 'drupaldocker/php' 'phpmentors/php-app' 'prooph/php' 'lephare/php' 'myprod/php' 'nazarpc/php' 'lastcallmedia/php' 'rockyluke/php' 'weldpua2008/php' 'doalitic/php' 'mariorez/php' 'dorapro/php' 'mvstudio/php' 'c4tech/php' 'fox91/php'
+EO:result
+)}"} )

@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'hylang' 'bde2020/spark-python-template' 'pathwar/python' 'harisekhon/ubuntu-dev' 'panubo/python' 'mikidi/mu-python-template' 'samldd/mu-python-template' 'teppich/docker-python-scistuff' 'semtech/mu-python-template' 'niteoweb/trusty-python' 'tarhan/python-base' 'sbanal/python-oracle-xe12.1-latest' 'xtansia/python35-latex' 'harisekhon/centos-dev' 'parsys/python2-latex' 'harisekhon/debian-dev' 'beevelop/nodejs-python-ruby' 'pdonorio/flasking' 'kamshak/python-latex' 'oggm/oggm' 'harisekhon/alpine-dev' 'bailaohe/statoy' 'zakdoek/steak-python-node' 'yotpo/grpc' 'cineca/nbsparkling'
+EO:result
+)}"} )

@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'AME'
+EO:result
+)}"} )

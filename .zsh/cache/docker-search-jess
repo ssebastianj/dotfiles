@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'jesselang/debian-vagrant' 'pacur/debian-jessie' 'moander/jessie' 'sillelien/jess' 'yus4ku/debian-jessie-packaging' 'essembeh/jessie' 'minimum2scp/ruby-jessie' 'minimum2scp/baseimage-jessie' 'jesse/jessebmiller.com' 'akagelo/debian-jessie-ansible' 'cyplo/jessie_base' 'dockerizedrupal/puppet-debian-jessie' 'jhsu802701/debian-jessie-dev' 'dockerizedrupal/base-debian-jessie' 'opentwincities/debian-jessie-min' 'jhsu802701/debian-jessie-hyde' 'opentwincities/debian-jessie-dev' 'jhsu802701/debian-jessie-rbenv-min' 'akagelo/debian-jessie-maven3-java-8' 'jhsu802701/debian-jessie-rbenv-general' 'minimum2scp/systemd-jessie' 'opentwincities/debian-jessie-rbenv-adoptatree' 'dockerizedrupal/supervisor-debian-jessie' 'jhsu802701/debian-jessie-rbenv-rubymn' 'jhsu802701/debian-jessie-rbenv-rubymn2'
+EO:result
+)}"} )

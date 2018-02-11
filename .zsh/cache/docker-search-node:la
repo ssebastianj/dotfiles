@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'jribar/node-phantomjs' 'vladharahan/nodeginx' 'lmmdock/electron' 'colthreepv/node-chrome' 'dotcore/node-ci' 'fizix/docker-kue-ui' 'zdvkm/node-postgres' 'trepidity/node-awscli-yarn' 'bsavelev/ionic2-android' 'dasnoo/node' 'tmerieux/circleci-node-browsers-awscli' 'karsten13/mm_hyp' 'ebrandvalue/calico-node' 'ashneo76/nodejs-chromium' 'evilj0e/node-docker-compose' 'amann11/circleci-node-aws' 'biot/node-start-accepting-entries' 'georgibakken/ko-node' 'yakio/serverless' 'larsrusteberg/node-latest-sudo' 'acrelle/discord-irc' 'xemasiv/node-env' 'webimp/node' 'redcloud1800/sea' 'dhdsp/nr'
+EO:result
+)}"} )

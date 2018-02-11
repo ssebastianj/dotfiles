@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'python' 'django' 'pypy' 'kaggle/python' 'amazon/aws-eb-python' 'centos/python-35-centos7' 'resin/raspberrypi3-python' 'iron/python' 'centos/python-27-centos7' 'circleci/python' 'resin/raspberrypi3-alpine-python' 'centos/python-34-centos7' 'komand/python-plugin' 'resin/beaglebone-black-python' 'qbtrade/python' 'resin/artik5-python' 'resin/qemux86-alpine-python' 'resin/qemux86-64-python' 'resin/artik10-python' 'resin/qemux86-python' 'resin/artik710-python' 'resin/nitrogen6x-python' 'resin/odroid-c1-python' 'resin/artik10-alpine-python' 'openshift/python-33-centos7'
+EO:result
+)}"} )

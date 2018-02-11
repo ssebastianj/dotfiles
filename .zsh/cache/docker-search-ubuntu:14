@@ -1,0 +1,4 @@
+result=( ${(Q)"${(z)$(<<\EO:result
+'saltstack/ubuntu-14.04-minimal' 'saltstack/ubuntu-14.04' 'brook/ubuntu-14.04.3-baidupcs' 'dalguete/ubuntu-14-04-64' 'simphonyproject/ubuntu-14.04-remote' 'widerplan/ubuntu-14.04' 'meschbach/ubuntu-1404-utd' 'apriorit/docker-ubuntu-14-04-x64' 'ashmastaflash/chef-client-ubuntu-14' 'apriorit/docker-ubuntu-14-04-x86' 'skiermatt2/ubuntu-14-jdk7' 'seresearch/opendavinci-ubuntu-14.04' 'tinyblue/ubuntu-14-kitura' 'base2s/ubuntu-14-jdk7' 'stevendgonzales/ubuntu-14.04-salt-minion' 'jared314/docker-ubuntu-14-04-java8' 'tinyblue/ubuntu-14-swift-3' 'dawidmalina/docker-salt-slave-ubuntu-14' 'baber/ubuntu-14-mc' 'technopreneural/docker-ubuntu-14.04-bind9' 'teenak/ubuntu-14-04-java8' 'thenewvu/ubuntu-14.04' 'superpan/swift-ubuntu-docker-14-04' 'syseleven/ubuntu-14.04-puppet3' 'simphonyproject/ubuntu-14.04-vncapp'
+EO:result
+)}"} )

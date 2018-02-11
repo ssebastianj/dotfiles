@@ -44,18 +44,6 @@ is_fish_shell() {
 #### Root dir for development purposes ---------------------------------------
 export DEVDIR="$HOME/development"
 
-#### rbenv -------------------------------------------------------------------
-lazyrbenv() {
-    unset -f rbenv
-    export RBENV_ROOT="$HOME/.rbenv"
-    export PATH="$RBENV_ROOT/bin:$PATH"
-    [[ -d "$RBENV_ROOT" ]] && rbenv init -
-}
-
-rbenv() {
-    lazyrbenv && rbenv "$@"
-}
-
 #### tmuxinator --------------------------------------------------------------
 export EDITOR="vim"
 
@@ -84,27 +72,7 @@ case "$guessed_shell" in
 esac
 
 #### Node Version Manager ----------------------------------------------------
-lazynvm() {
-    unset -f nvm node npm
-    export NVM_DIR="$HOME/.nvm"
-    # shellcheck source=/dev/null
-    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"  # This loads nvm
-}
-
-nvm() {
-  lazynvm
-  nvm "$@"
-}
-
-node() {
-  lazynvm
-  node "$@"
-}
-
-npm() {
-  lazynvm
-  npm "$@"
-}
+autoload -Uz nvm
 
 #### Python ------------------------------------------------
 export PATH="$HOME/.local/bin:$PATH"
