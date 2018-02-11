@@ -1,4 +1,0 @@
-result=( ${(Q)"${(z)$(<<\EO:result
-'postgres' 'xcgd/postgresql' 'ahovsepy/rhq-4.12.0' 'inteliquent/postgresql' 'drnoa/kivitendo-docker' 'ekapusta/postgres-cube-limit-bump' 'boonen/pgshard_demo' 'achubaty/inspades-db' 'ez123/ops-toolbox-cli-db' 'cineca/icat' 'latera/postgres-homs' 'mohamnag/gradle-psql' 'latera/postgres-activiti' 'nebo15/alpine-pgweb' 'annixa/docker-pg_dump' 'mjvdende/gitlab-ce' 'kurron/docker-monitor-postgresql' 'seniorgrowth/seniorgrowth-db' 'impactbot/impact-platform-pg' 'inbobmk/n2k_database' 'mkodockx/docker-jira' 'jlospinoso/postgresql' 'echelon/docker-harbor' 'q4p14/postgresql' 'galacticfog/gestalt-data'
-EO:result
-)}"} )

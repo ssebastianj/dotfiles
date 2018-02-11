@@ -1,4 +1,0 @@
-result=( ${(Q)"${(z)$(<<\EO:result
-'wodby/nginx-php-7-alpine' 'danieldent/php-7-fpm' 'karllhughes/laravel-php-7' 'bigm/php-7-fpm' 'biera/php-7' 'jefflaplante/php-fpm-7' 'swiftnetworks/docker-php-7-symfony-console' 'accent/rancher-php-7' 'pmguser/php-7-apache' 'sacredskull/php-7-fpm-development' 'swiftnetworks/docker-php-cli-7' 'limestreet/apache-php-7' 'whitehart/nginx-php-7' 'thomaslomas/docker-php-7' 'swiftnetworks/docker-php-7-symfony-phpunit' 'andrewklau/s2i-php-7-tideways' 'bigm/php-7-fpm-postfix' '1and1internet/ubuntu-16-apache-php-5.6-drupal-7' 'lucasnetau/s2i-php-7-devtoolkit' 'danielsamson/docker-php-7' 'swiftnetworks/docker-php-fpm-7' 'limestreet/apache-php-7-0-dev' 'yurys/php-fpm-7' 'wb253/nginx-php-7-alpine' 'toricls/alpine-php-7-experimental'
-EO:result
-)}"} )

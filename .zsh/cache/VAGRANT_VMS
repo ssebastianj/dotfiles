@@ -1,4 +1,0 @@
-_vagrant_vms=( ${(Q)"${(z)$(<<\EO:_vagrant_vms
-'laemmle-chef' 'The'
-EO:_vagrant_vms
-)}"} )
