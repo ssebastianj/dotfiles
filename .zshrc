@@ -7,8 +7,8 @@ fi
 #### ============================== zsh  =====================================
 #### Add function and completions to search path
 fpath=(
-    "$HOME/.zsh/functions" 
-    "$HOME/.zsh/completions" 
+    "${HOME}/.zsh/functions"
+    "${HOME}/.zsh/completions"
     "${fpath[@]}"
 )
 
@@ -55,7 +55,7 @@ setopt C_BASES
 # bindkey -v
 
 #### History
-export HISTFILE="$HOME/.histfile"
+export HISTFILE="${HOME}/.histfile"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
@@ -68,7 +68,7 @@ alias mvi='nocorrect mv -i'
 alias rmi='nocorrect rm -i'
 
 #### Zstyle
-zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
+zstyle ':completion:*' cache-path "${HOME}/.zsh/cache"
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' rehash true
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
@@ -76,4 +76,4 @@ zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
 
 #### ============================ ssebastianj ================================
 # shellcheck source=/dev/null
-[[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"
+[[ -s "${HOME}/.commonrc" ]] && source "${HOME}/.commonrc"

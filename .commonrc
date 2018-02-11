@@ -39,10 +39,10 @@ is_fish_shell() {
 
 #### Aliases -----------------------------------------------------------------
 # shellcheck source=/dev/null
-[[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
+[[ -s "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
 
 #### Root dir for development purposes ---------------------------------------
-export DEVDIR="$HOME/development"
+export DEVDIR="${HOME}/development"
 
 #### tmuxinator --------------------------------------------------------------
 export EDITOR="vim"
@@ -50,23 +50,23 @@ export EDITOR="vim"
 case "$guessed_shell" in
     '2')
         # zsh
-        if [[ -s "$HOME/.bin/tmuxinator.zsh" ]]; then
+        if [[ -s "${HOME}/.bin/tmuxinator.zsh" ]]; then
             # shellcheck source=/dev/null
-            source "$HOME/.bin/tmuxinator.zsh"
+            source "${HOME}/.bin/tmuxinator.zsh"
         fi
         ;;
     '3')
         # fish
-        if [[ -s "$HOME/.bin/tmuxinator.fish" ]]; then
-            cp --update --backup "$HOME/.bin/tmuxinator.fish" "$HOME/.config/fish/completions/"
+        if [[ -s "${HOME}/.bin/tmuxinator.fish" ]]; then
+            cp --update --backup "${HOME}/.bin/tmuxinator.fish" "${HOME}/.config/fish/completions/"
         fi
         ;;
            
     *)
         # bash
-        if [[ -s "$HOME/.bin/tmuxinator.bash" ]]; then
+        if [[ -s "${HOME}/.bin/tmuxinator.bash" ]]; then
             # shellcheck source=/dev/null
-            source "$HOME/.bin/tmuxinator.bash"
+            source "${HOME}/.bin/tmuxinator.bash"
         fi
         ;;
 esac
@@ -75,11 +75,11 @@ esac
 autoload -Uz nvm
 
 #### Python ------------------------------------------------
-export PATH="$HOME/.local/bin:$PATH"
-export WORKON_HOME="$DEVDIR/.virtualenvs"
+export PATH="${HOME}/.local/bin:${PATH}"
+export WORKON_HOME="${DEVDIR}/.virtualenvs"
 
 #### Django ------------------------------------------------------------------
-DJANGO_COMPLETION_FILE="$DEVDIR/django/extras/django_bash_completion"
+DJANGO_COMPLETION_FILE="${DEVDIR}/django/extras/django_bash_completion"
 
 if [[ -s "$DJANGO_COMPLETION_FILE" ]]; then
     is_zsh_shell && autoload -Uz bashcompinit && bashcompinit
@@ -89,14 +89,21 @@ if [[ -s "$DJANGO_COMPLETION_FILE" ]]; then
 fi
 
 #### Git ---------------------------------------------------------------------
-export PATH="$HOME/.git-contrib:$PATH"
+export PATH="${HOME}/.git-contrib:${PATH}"
 
 #### Golang ------------------------------------------------------------------
-export GOPATH="$DEVDIR/gocode"
-export PATH="$PATH:$GOPATH/bin"
+export GOPATH="${DEVDIR}/gocode"
+export PATH="${GOPATH}/bin:${PATH}"
 
 #### Rust --------------------------------------------------------------------
-export RUSTUP_HOME="$HOME/.rustup"
-export CARGO_HOME="$HOME/.cargo"
-export PATH="$RUSTUP_HOME/bin:$CARGO_HOME/bin:$PATH"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export RUSTUP_HOME="${HOME}/.rustup"
+export CARGO_HOME="${HOME}/.cargo"
+export PATH="${RUSTUP_HOME}/bin:${CARGO_HOME}/bin:${PATH}"
+
+RUST_GIT_SRC_DIR="${DEVDIR}/rust/src"
+if [[ -d "$RUST_GIT_SRC_DIR" ]]; then
+    export RUST_SRC_PATH="$RUST_GIT_SRC_DIR"
+else
+    RUST_SYSROOT="$(rustc --print sysroot)"
+    export RUST_SRC_PATH="${RUST_SYSROOT}/lib/rustlib/src/rust/src"
+fi
