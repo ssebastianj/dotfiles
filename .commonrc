@@ -9,13 +9,13 @@
 guessed_shell='1'
 
 guess_shell() {
-    if [[ -n "$BASH_VERSION" ]]; then
+    if [[ -n "${BASH_VERSION}" ]]; then
         # Assume shell is bash
         guessed_shell='1'
-    elif [[ -n "$ZSH_VERSION" ]]; then
+    elif [[ -n "${ZSH_VERSION}" ]]; then
         # Assume shell is zsh
         guessed_shell='2'
-    elif [[ -n "$FISH_VERSION" ]]; then
+    elif [[ -n "${FISH_VERSION}" ]]; then
         # Assume shell is fish
         guessed_shell='3'
     fi
@@ -24,15 +24,15 @@ guess_shell() {
 guess_shell
 
 is_bash_shell() {
-    [[ "$guessed_shell" == '1' ]]
+    [[ "${guessed_shell}" == '1' ]]
 }
 
 is_zsh_shell() {
-    [[ "$guessed_shell" == '2' ]]
+    [[ "${guessed_shell}" == '2' ]]
 }
 
 is_fish_shell() {
-    [[ "$guessed_shell" == '3' ]]
+    [[ "${guessed_shell}" == '3' ]]
 }
 
 #### ============================ ssebastianj ================================
@@ -47,7 +47,7 @@ export DEVDIR="${HOME}/development"
 #### tmuxinator --------------------------------------------------------------
 export EDITOR="vim"
 
-case "$guessed_shell" in
+case "${guessed_shell}" in
     '2')
         # zsh
         if [[ -s "${HOME}/.bin/tmuxinator.zsh" ]]; then
@@ -81,11 +81,11 @@ export WORKON_HOME="${DEVDIR}/.virtualenvs"
 #### Django ------------------------------------------------------------------
 DJANGO_COMPLETION_FILE="${DEVDIR}/django/extras/django_bash_completion"
 
-if [[ -s "$DJANGO_COMPLETION_FILE" ]]; then
+if [[ -s "${DJANGO_COMPLETION_FILE}" ]]; then
     is_zsh_shell && autoload -Uz bashcompinit && bashcompinit
 
     # shellcheck source=/dev/null
-    source "$DJANGO_COMPLETION_FILE"
+    source "${DJANGO_COMPLETION_FILE}"
 fi
 
 #### Git ---------------------------------------------------------------------
@@ -101,8 +101,8 @@ export CARGO_HOME="${HOME}/.cargo"
 export PATH="${RUSTUP_HOME}/bin:${CARGO_HOME}/bin:${PATH}"
 
 RUST_GIT_SRC_DIR="${DEVDIR}/rust/src"
-if [[ -d "$RUST_GIT_SRC_DIR" ]]; then
-    export RUST_SRC_PATH="$RUST_GIT_SRC_DIR"
+if [[ -d "${RUST_GIT_SRC_DIR}" ]]; then
+    export RUST_SRC_PATH="${RUST_GIT_SRC_DIR}"
 else
     RUST_SYSROOT="$(rustc --print sysroot)"
     export RUST_SRC_PATH="${RUST_SYSROOT}/lib/rustlib/src/rust/src"
