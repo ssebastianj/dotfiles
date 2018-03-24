@@ -37,6 +37,9 @@ is_fish_shell() {
 
 #### ============================ ssebastianj ================================
 
+#### Editor ------------------------------------------------------------------
+export EDITOR="vim"
+
 #### Aliases -----------------------------------------------------------------
 # shellcheck source=/dev/null
 [[ -s "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
@@ -44,39 +47,14 @@ is_fish_shell() {
 #### Root dir for development purposes ---------------------------------------
 export DEVDIR="${HOME}/development"
 
-#### tmuxinator --------------------------------------------------------------
-export EDITOR="vim"
-
-case "${guessed_shell}" in
-    '2')
-        # zsh
-        if [[ -s "${HOME}/.bin/tmuxinator.zsh" ]]; then
-            # shellcheck source=/dev/null
-            source "${HOME}/.bin/tmuxinator.zsh"
-        fi
-        ;;
-    '3')
-        # fish
-        if [[ -s "${HOME}/.bin/tmuxinator.fish" ]]; then
-            cp --update --backup "${HOME}/.bin/tmuxinator.fish" "${HOME}/.config/fish/completions/"
-        fi
-        ;;
-           
-    *)
-        # bash
-        if [[ -s "${HOME}/.bin/tmuxinator.bash" ]]; then
-            # shellcheck source=/dev/null
-            source "${HOME}/.bin/tmuxinator.bash"
-        fi
-        ;;
-esac
+#### Python ------------------------------------------------
+export WORKON_HOME="${DEVDIR}/.virtualenvs"
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="${PYENV_ROOT}/bin:${PATH}"
 
 #### Node Version Manager ----------------------------------------------------
 autoload -Uz nvm
-
-#### Python ------------------------------------------------
-export PATH="${HOME}/.local/bin:${PATH}"
-export WORKON_HOME="${DEVDIR}/.virtualenvs"
 
 #### Django ------------------------------------------------------------------
 DJANGO_COMPLETION_FILE="${DEVDIR}/django/extras/django_bash_completion"
@@ -106,4 +84,9 @@ if [[ -d "${RUST_GIT_SRC_DIR}" ]]; then
 else
     RUST_SYSROOT="$(rustc --print sysroot)"
     export RUST_SRC_PATH="${RUST_SYSROOT}/lib/rustlib/src/rust/src"
+fi
+
+#### Pyenv ------------------------------------------------------------------
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
 fi
