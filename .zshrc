@@ -77,3 +77,4 @@ zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
 #### ============================ ssebastianj ================================
 # shellcheck source=/dev/null
 [[ -s "${HOME}/.commonrc" ]] && source "${HOME}/.commonrc"
+

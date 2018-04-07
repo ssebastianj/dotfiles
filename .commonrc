@@ -45,10 +45,10 @@ export EDITOR="vim"
 [[ -s "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
 
 #### Root dir for development purposes ---------------------------------------
-export DEVDIR="${HOME}/development"
+export DEV_HOME="${HOME}/development"
 
 #### Python ------------------------------------------------
-export WORKON_HOME="${DEVDIR}/.virtualenvs"
+export WORKON_HOME="${DEV_HOME}/.virtualenvs"
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
@@ -57,7 +57,7 @@ export PATH="${PYENV_ROOT}/bin:${PATH}"
 autoload -Uz nvm
 
 #### Django ------------------------------------------------------------------
-DJANGO_COMPLETION_FILE="${DEVDIR}/django/extras/django_bash_completion"
+DJANGO_COMPLETION_FILE="${DEV_HOME}/django/extras/django_bash_completion"
 
 if [[ -s "${DJANGO_COMPLETION_FILE}" ]]; then
     is_zsh_shell && autoload -Uz bashcompinit && bashcompinit
@@ -70,7 +70,7 @@ fi
 export PATH="${HOME}/.git-contrib:${PATH}"
 
 #### Golang ------------------------------------------------------------------
-export GOPATH="${DEVDIR}/gocode"
+export GOPATH="${DEV_HOME}/gocode"
 export PATH="${GOPATH}/bin:${PATH}"
 
 #### Rust --------------------------------------------------------------------
@@ -78,7 +78,7 @@ export RUSTUP_HOME="${HOME}/.rustup"
 export CARGO_HOME="${HOME}/.cargo"
 export PATH="${RUSTUP_HOME}/bin:${CARGO_HOME}/bin:${PATH}"
 
-RUST_GIT_SRC_DIR="${DEVDIR}/rust/src"
+RUST_GIT_SRC_DIR="${DEV_HOME}/rust/src"
 if [[ -d "${RUST_GIT_SRC_DIR}" ]]; then
     export RUST_SRC_PATH="${RUST_GIT_SRC_DIR}"
 else
@@ -90,3 +90,4 @@ fi
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
+
