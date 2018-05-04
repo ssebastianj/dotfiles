@@ -1,1 +1,11 @@
+# zsh
 .zsh/cache
+
+# VSCode
+.config/Code/*
+!.config/Code/User/
+.config/Code/User/syncLocalSettings.json
+.config/Code/User/syncSummary.txt
+.config/Code/User/*.lock
+.config/Code/User/workspaceStorage/
+
