@@ -1,0 +1,11 @@
+[
+{ "key": "meta+shift+d", "command": "workbench.view.debug" },
+{
+    "key": "ctrl+shift+d",
+    "command": "editor.action.copyLinesDownAction"
+},
+{
+    "key": "ctrl+shift+t",
+    "command": "python.runtests"
+}
+]
