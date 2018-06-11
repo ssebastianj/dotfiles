@@ -39,26 +39,12 @@ Plug 'chriskempson/base16-vim'
 " Golang
 Plug 'fatih/vim-go'
 
-" Drag visual blocks arround
-Plug 'fisadev/dragvisuals.vim'
-" Pending tasks list
-Plug 'fisadev/FixedTaskList.vim'
-" Extension to ctrlp, for fuzzy command finder
-Plug 'fisadev/vim-ctrlp-cmdpalette'
-" Automatically sort python imports
-Plug 'fisadev/vim-isort'
-
 " Snippets manager (SnipMate), dependencies, and snippets repo
 Plug 'garbas/vim-snipmate'
 
-" Snippets manager (SnipMate), dependencies, and snippets repo
-Plug 'honza/vim-snippets'
-
-" Virtualenv
-Plug 'jmcantrell/vim-virtualenv'
-
 " Code and files fuzzy finder
 Plug 'kien/ctrlp.vim'
+
 " Tab list panel
 Plug 'kien/tabman.vim'
 
@@ -69,9 +55,6 @@ Plug 'klen/python-mode'
 " Class/module browser
 Plug 'majutsushi/tagbar'
 
-" Snippets manager (SnipMate), dependencies, and snippets repo
-Plug 'MarcWeber/vim-addon-mw-utils'
-
 " Zen coding
 Plug 'mattn/emmet-vim'
 
@@ -81,24 +64,14 @@ Plug 'mhinz/vim-signify'
 " Indent text object
 Plug 'michaeljsmith/vim-indent-object'
 
-" Node.JS
+" Node.js
 Plug 'moll/vim-node'
 
 " Git integration
 Plug 'motemen/git-vim'
 
-" Relative numbering of lines (0 is the current line)
-" (disabled by default because is very intrusive and can't be easily toggled
-" on/off. When the plug is present, will always activate the relative
-" numbering every time you go to normal mode. Author refuses to add a setting
-" to avoid that)
-" Plug 'myusuf3/numbers.vim'
-
 " Vastly improved Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
-
-" Rust Racer 
-Plug 'racer-rust/vim-racer'
 
 " Rust support
 Plug 'rust-lang/rust.vim'
@@ -108,23 +81,22 @@ Plug 'rosenfeld/conque-term'
 
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
+
 " Better file browser
 Plug 'scrooloose/nerdtree'
+
 " Python and other languages code checker
 Plug 'scrooloose/syntastic'
-
-" Snippets manager (SnipMate), dependencies, and snippets repo
-Plug 'tomtom/tlib_vim'
 
 " Autoclose
 Plug 'Townk/vim-autoclose'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
+
 " Markdown runtime filesi
 Plug 'tpope/vim-markdown'
-" Ruby on Rails power tools
-Plug 'tpope/vim-rails'
+
 " Surround
 Plug 'tpope/vim-surround'
 
@@ -137,25 +109,15 @@ Plug 'Shougo/neocomplete.vim'
 " Go Extra
 Plug 'vim-jp/vim-go-extra'
 
-" Google YAPF
-"Plug 'pignacio/vim-yapf-format'
-
-"let yapf_vim_path = expand('~/.vim/autoload/yapf.vim')
-
-"if !filereadable(yapf_vim_path)
-"    echo "Installing vim-yapf..."
-"    echo ""
-"    silent !mkdir -p ~/.vim/autoload
-"    silent !curl -fLo ~/.vim/autoload/yapf.vim --create-dirs https://raw.githubusercontent.com/google/yapf/master/plugins/yapf.vim 
-"endif
-
 " Plugs from vim-scripts repos:
 " ----------------------------------------------------------------------------
 
 " Search results counter
 Plug 'vim-scripts/IndexedSearch'
+
 " XML/HTML tags navigation
 Plug 'vim-scripts/matchit.zip'
+
 " Yank history navigation
 Plug 'vim-scripts/YankRing.vim'
 
