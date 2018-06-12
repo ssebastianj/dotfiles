@@ -527,9 +527,3 @@ set hidden
 let g:racer_cmd = "$CARGO_HOME/bin/racer"
 let $RUST_SRC_PATH="$RUST_SRC_PATH"
 
-" Google YAPF
-let g:yapf_format_allow_out_of_range_changes = 1
-let g:yapf_format_move_to_error = 1
-map <C-Y> :YapfFullFormat<CR>
-imap <C-Y> <ESC>:YapfFormat<CR>i
-vmap <C-Y> :YapfFormat<CR>
