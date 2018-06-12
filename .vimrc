@@ -39,9 +39,6 @@ Plug 'chriskempson/base16-vim'
 " Golang
 Plug 'fatih/vim-go'
 
-" Snippets manager (SnipMate), dependencies, and snippets repo
-Plug 'garbas/vim-snipmate'
-
 " Code and files fuzzy finder
 Plug 'kien/ctrlp.vim'
 
