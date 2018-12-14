@@ -6,19 +6,10 @@ set nocompatible
 
 filetype off
 
-let vim_plug_just_installed = 0
-let vim_plug_path = expand('~/.vim/autoload/plug.vim')
-
-if !filereadable(vim_plug_path)
-    echo "Installing vim-plug..."
-    echo ""
-    silent !mkdir -p ~/.vim/autoload
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    let vim_plug_just_installed = 1
-endif
-
-if vim_plug_just_installed
-    :execute 'source '.fnameescape(vim_plug_path)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " ============================================================================
@@ -26,7 +17,7 @@ endif
 " You can disable or add new ones here:
 call plug#begin('~/.vim/plugged')
 
-" Plugins from GitHub repos:
+" Plugins from GitHub:
 " ----------------------------------------------------------------------------
 
 " Airline
@@ -58,14 +49,8 @@ Plug 'mattn/emmet-vim'
 " Git/mercurial/others diff icons on the side of the file lines
 Plug 'mhinz/vim-signify'
 
-" Indent text object
-Plug 'michaeljsmith/vim-indent-object'
-
 " Node.js
 Plug 'moll/vim-node'
-
-" Git integration
-Plug 'motemen/git-vim'
 
 " Vastly improved Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
@@ -91,20 +76,14 @@ Plug 'Townk/vim-autoclose'
 " Git integration
 Plug 'tpope/vim-fugitive'
 
-" Markdown runtime filesi
+" Markdown runtime files
 Plug 'tpope/vim-markdown'
 
 " Surround
 Plug 'tpope/vim-surround'
 
-" Window chooser
-Plug 't9md/vim-choosewin'
-
 " Better autocompletion
 Plug 'Shougo/neocomplete.vim'
-
-" Go Extra
-Plug 'vim-jp/vim-go-extra'
 
 " Plugs from vim-scripts repos:
 " ----------------------------------------------------------------------------
@@ -119,14 +98,6 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/YankRing.vim'
 
 call plug#end()
-
-" ============================================================================
-" Install plugins the first time vim runs
-
-if vim_plug_just_installed
-    echo "Installing plugins..."
-    :PlugInstall
-endif
 
 " ============================================================================
 " Vim settings and mappings
