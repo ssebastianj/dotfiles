@@ -40,14 +40,8 @@ Plug 'kien/tabman.vim'
 " operators, highlighting, run and ipdb breakpoints)
 Plug 'klen/python-mode'
 
-" Class/module browser
-Plug 'majutsushi/tagbar'
-
 " Zen coding
 Plug 'mattn/emmet-vim'
-
-" Git/mercurial/others diff icons on the side of the file lines
-Plug 'mhinz/vim-signify'
 
 " Node.js
 Plug 'moll/vim-node'
@@ -57,9 +51,6 @@ Plug 'pangloss/vim-javascript'
 
 " Rust support
 Plug 'rust-lang/rust.vim'
-
-" Consoles as buffers
-Plug 'rosenfeld/conque-term'
 
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
