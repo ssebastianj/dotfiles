@@ -76,6 +76,9 @@ Plug 'tpope/vim-surround'
 " Better autocompletion
 Plug 'Shougo/neocomplete.vim'
 
+" Asynchronous Lint Engine
+Plug 'w0rp/ale'
+
 " Plugs from vim-scripts repos:
 " ----------------------------------------------------------------------------
 
