@@ -50,11 +50,8 @@ export DEV_HOME="${HOME}/development"
 #### Python ------------------------------------------------
 export WORKON_HOME="${DEV_HOME}/.virtualenvs"
 export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
-
-#### Node Version Manager ----------------------------------------------------
-autoload -Uz nvm
+export PATH="${HOME}/.local/bin:${PATH}"
 
 #### Django ------------------------------------------------------------------
 DJANGO_COMPLETION_FILE="${DEV_HOME}/django/extras/django_bash_completion"
@@ -91,3 +88,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
+#### Node Version Manager ----------------------------------------------------
+autoload -Uz nvm
+
+### Incognito
+autoload -Uz chrome-incognito
