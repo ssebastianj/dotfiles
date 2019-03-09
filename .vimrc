@@ -490,3 +490,13 @@ map <leader>r :call RenameFile()<cr>
 " Rust Language
 let $RUST_SRC_PATH="$RUST_SRC_PATH"
 let g:rustfmt_autosave = 1
+
+" Asynchronous Lint Engine
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver'],
+\}
+
