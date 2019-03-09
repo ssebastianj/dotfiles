@@ -8,6 +8,14 @@ alias v="vim"
 alias py2="python2"
 alias py3="python3"
 
+## Python HTTP server
+alias py2serv="python2 -m SimpleHTTPServer"
+alias py3serv="python3 -m http.server"
+
+#### Jupyter -----------------------------------------------------------------
+alias jupycon="jupyter console"
+alias jupynot="jupyter notebook"
+
 #### Django ------------------------------------------------------------------
 ## Admin
 alias dja="django-admin"
@@ -36,12 +44,6 @@ alias djsqlsr="djm sqlsequencereset"
 alias djt="djm test"
 alias djts="djm testserver"
 alias djdbs="djm dbshell"
-
-## Python HTTP server
-alias py2svr="py2 -m SimpleHTTPServer"
-alias py3svr="py3 -m http.server"
-alias ipy2="ipython2"
-alias ipy3="ipython3"
 
 #### ls ----------------------------------------------------------------------
 alias l="ls -CF"
