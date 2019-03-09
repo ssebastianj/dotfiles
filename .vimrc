@@ -491,6 +491,9 @@ map <leader>r :call RenameFile()<cr>
 let $RUST_SRC_PATH="$RUST_SRC_PATH"
 let g:rustfmt_autosave = 1
 
+" TypeScript Language
+autocmd BufNewFile,BufReadPost *.ts set filetype=typescript
+
 " Asynchronous Lint Engine
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
