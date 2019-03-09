@@ -467,13 +467,6 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
-
-" set guifont=DejaVu\ Sans\ Mono:h13
-" set guifont=Monaco\ Bold\ For\ Powerline:h12
-" set guifont=DejaVu\ Sans\ Mono\ For\ Powerline:h12
-set guifont=Meslo\ For\ Powerline:h12
-
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd VimEnter * call AirlineInit()
 
 function! RenameFile()
@@ -486,6 +479,9 @@ function! RenameFile()
     endif
 endfunction
 map <leader>r :call RenameFile()<cr>
+
+" Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Rust Language
 let $RUST_SRC_PATH="$RUST_SRC_PATH"
