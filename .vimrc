@@ -487,8 +487,6 @@ function! RenameFile()
 endfunction
 map <leader>r :call RenameFile()<cr>
 
-" Rust Auto Complete-Er config
-set hidden
-let g:racer_cmd = "$CARGO_HOME/bin/racer"
+" Rust Language
 let $RUST_SRC_PATH="$RUST_SRC_PATH"
-
+let g:rustfmt_autosave = 1
