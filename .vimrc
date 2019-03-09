@@ -36,9 +36,8 @@ Plug 'kien/ctrlp.vim'
 " Tab list panel
 Plug 'kien/tabman.vim'
 
-" Python mode (indentation, doc, refactor, lints, code checking, motion and
-" operators, highlighting, run and ipdb breakpoints)
-Plug 'klen/python-mode'
+" Python mode
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " Zen coding
 Plug 'mattn/emmet-vim'
