@@ -5,7 +5,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 #### ============================== zsh  =====================================
-#### Add function and completions to search path
+#### Add functions and completions to search path
 fpath=(
     "${HOME}/.zsh/functions"
     "${HOME}/.zsh/completions"
