@@ -18,9 +18,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Base16 Themes
-Plug 'chriskempson/base16-vim'
-
 " Golang
 Plug 'fatih/vim-go'
 
