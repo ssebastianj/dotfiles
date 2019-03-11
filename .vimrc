@@ -69,9 +69,6 @@ Plug 'w0rp/ale'
 " Plugs from vim-scripts repos:
 " ----------------------------------------------------------------------------
 
-" Search results counter
-Plug 'vim-scripts/IndexedSearch'
-
 " XML/HTML tags navigation
 Plug 'vim-scripts/matchit.zip'
 
