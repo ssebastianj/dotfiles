@@ -49,7 +49,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 
 " Autoclose
-Plug 'Townk/vim-autoclose'
+Plug 'jiangmiao/auto-pairs'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
