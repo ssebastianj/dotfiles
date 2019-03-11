@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go'
 
 " Code and files fuzzy finder
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Tab list panel
 Plug 'kien/tabman.vim'
