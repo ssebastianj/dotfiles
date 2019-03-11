@@ -24,9 +24,6 @@ Plug 'fatih/vim-go'
 " Code and files fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Tab list panel
-Plug 'kien/tabman.vim'
-
 " Python mode
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
