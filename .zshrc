@@ -57,17 +57,9 @@ setopt C_BASES
 # bindkey -v
 
 #### History
-export HISTFILE="${HOME}/.histfile"
+export HISTFILE="${HOME}/.history"
 export HISTSIZE=10000
-export SAVEHIST=10000
-
-#### Aliases
-alias cp='nocorrect cp'
-alias mv='nocorrect mv'
-alias rm='nocorrect rm'
-alias cpi='nocorrect cp -i'
-alias mvi='nocorrect mv -i'
-alias rmi='nocorrect rm -i'
+export SAVEHIST=$HISTSIZE
 
 #### Zstyle
 zstyle ':completion:*' cache-path "${HOME}/.zsh/cache"
