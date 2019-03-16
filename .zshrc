@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 #### ============================ zprezto ====================================
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     # shellcheck source=/dev/null
