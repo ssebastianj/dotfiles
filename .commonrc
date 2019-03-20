@@ -30,6 +30,11 @@ is_zsh_shell() {
 #### Editor ------------------------------------------------------------------
 export EDITOR="vim"
 
+### Colors -------------------------------------------------------------------
+# Colorize terminal
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+export GREP_OPTIONS="--color=auto"
+
 #### Aliases -----------------------------------------------------------------
 # shellcheck source=/dev/null
 [[ -s "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
