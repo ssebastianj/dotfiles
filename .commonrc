@@ -62,7 +62,7 @@ fi
 export PATH="${HOME}/.git-contrib:${PATH}"
 
 #### Golang ------------------------------------------------------------------
-export GOPATH="${PROJ_ROOT}/gocode"
+export GOPATH="${PROJ_ROOT}/go"
 export PATH="${GOPATH}/bin:${PATH}"
 
 #### Rust --------------------------------------------------------------------
