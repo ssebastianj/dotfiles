@@ -40,16 +40,16 @@ export GREP_OPTIONS="--color=auto"
 [[ -s "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
 
 #### Root dir for development purposes ---------------------------------------
-export DEV_HOME="${HOME}/development"
+export PROJ_ROOT="${HOME}/development"
 
 #### Python ------------------------------------------------
 export PATH="${HOME}/.local/bin:${PATH}"
-export WORKON_HOME="${DEV_HOME}/.virtualenvs"
+export WORKON_HOME="${PROJ_ROOT}/.virtualenvs"
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
 
 #### Django ------------------------------------------------------------------
-DJANGO_COMPLETION_FILE="${DEV_HOME}/django/extras/django_bash_completion"
+DJANGO_COMPLETION_FILE="${PROJ_ROOT}/django/extras/django_bash_completion"
 
 if [[ -s "${DJANGO_COMPLETION_FILE}" ]]; then
     is_zsh_shell && autoload -Uz bashcompinit && bashcompinit
@@ -62,7 +62,7 @@ fi
 export PATH="${HOME}/.git-contrib:${PATH}"
 
 #### Golang ------------------------------------------------------------------
-export GOPATH="${DEV_HOME}/gocode"
+export GOPATH="${PROJ_ROOT}/gocode"
 export PATH="${GOPATH}/bin:${PATH}"
 
 #### Rust --------------------------------------------------------------------
@@ -70,7 +70,7 @@ export RUSTUP_HOME="${HOME}/.rustup"
 export CARGO_HOME="${HOME}/.cargo"
 export PATH="${RUSTUP_HOME}/bin:${CARGO_HOME}/bin:${PATH}"
 
-RUST_GIT_SRC_DIR="${DEV_HOME}/rust/src"
+RUST_GIT_SRC_DIR="${PROJ_ROOT}/rust/src"
 if [[ -d "${RUST_GIT_SRC_DIR}" ]]; then
     export RUST_SRC_PATH="${RUST_GIT_SRC_DIR}"
 else
