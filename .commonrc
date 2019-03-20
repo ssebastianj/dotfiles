@@ -25,7 +25,8 @@ is_zsh_shell() {
     [[ "${guessed_shell}" == 'zsh' ]]
 }
 
-#### ============================ ssebastianj ================================
+#### Root dir for development purposes ---------------------------------------
+export PROJ_ROOT="${HOME}/development"
 
 #### Extra -------------------------------------------------------------------
 if [[ -r ".extra" ]] && [[ -f ".extra" ]]; then
@@ -44,9 +45,6 @@ export GREP_OPTIONS="--color=auto"
 #### Aliases -----------------------------------------------------------------
 # shellcheck source=/dev/null
 [[ -s "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
-
-#### Root dir for development purposes ---------------------------------------
-export PROJ_ROOT="${HOME}/development"
 
 #### Python ------------------------------------------------
 export PATH="${HOME}/.local/bin:${PATH}"
