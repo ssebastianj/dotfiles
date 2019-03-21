@@ -11,3 +11,6 @@
 
 # Extra
 .extra
+
+# Git
+.gitconfig.local
