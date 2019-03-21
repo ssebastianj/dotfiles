@@ -70,7 +70,7 @@
 [interactive]
     diffFilter = diff-highlight
 [http]
-	cookiefile = /home/sebastian/.gitcookies
+	cookiefile = ~/.gitcookies
 
 # use separate file for username / github token / etc
 # "Inspi-tolen" from: https://github.com/paulirish/dotfiles/blob/9a865be4d6c77e6556bfe2c90e44c31afa2c7cf7/.gitconfig#L92
