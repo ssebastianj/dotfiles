@@ -48,27 +48,34 @@
     spush    = push --recurse-submodules=on-demand
     supdate  = submodule update --remote --merge
     mr       = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+
 [help]
     autocorrect = 1
+
 [core]
     editor = vim
+
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+
 [merge]
     tool = meld
+
 [mergetool "meld"]
     cmd = meld $LOCAL $BASE $REMOTE --output $MERGED --diff $BASE $LOCAL --diff $BASE $REMOTE --auto-merge
     trustExitCode = false
+
 [diff]
     tool = meld
+
 [difftool "meld"]
     cmd = meld "$LOCAL $REMOTE"
+
 [pager]
-    log  = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
-[interactive]
-    diffFilter = diff-highlight
+    log  = less
+    show = less
+    diff = less
+
 [http]
 	cookiefile = ~/.gitcookies
 
