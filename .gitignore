@@ -9,3 +9,5 @@
 .config/Code/User/*.lock
 .config/Code/User/workspaceStorage/
 
+# Extra
+.extra
