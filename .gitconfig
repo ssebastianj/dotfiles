@@ -4,9 +4,6 @@
     branch      = true
     interactive = true
     diff        = true
-[user]
-    name       = Sebastián J. Seba
-    email      = ssebastianj@gmail.com
 [gui]
     spellingdictionary = none
 	encoding = utf-8
