@@ -14,3 +14,14 @@
 
 # Local
 *.local
+
+# zsh
+.zcompdump*
+.history
+.histfile
+
+# Python
+.python_history
+
+# npm
+package*.json
