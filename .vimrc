@@ -455,6 +455,9 @@ function! RenameFile()
 endfunction
 map <leader>r :call RenameFile()<cr>
 
+nmap <F9> :set ignorecase! ignorecase?
+set smartcase
+
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
