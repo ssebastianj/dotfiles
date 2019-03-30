@@ -1,4 +1,4 @@
-# zsh
+
 .zsh/cache
 
 # VSCode
@@ -25,3 +25,6 @@
 
 # npm
 package*.json
+
+# Git
+.git-credentials
