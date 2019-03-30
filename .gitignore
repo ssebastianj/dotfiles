@@ -28,3 +28,4 @@ package*.json
 
 # Git
 .git-credentials
+**/git/credentials
