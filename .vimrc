@@ -452,6 +452,10 @@ function! RenameFile()
 endfunction
 map <leader>r :call RenameFile()<cr>
 
+" Leader
+let mapleader=","
+
+" Case
 nmap <F9> :set ignorecase! ignorecase?
 set smartcase
 
@@ -474,4 +478,3 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \}
 
-let mapleader=","
