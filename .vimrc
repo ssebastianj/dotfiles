@@ -69,9 +69,6 @@ Plug 'w0rp/ale'
 " Plugs from vim-scripts repos:
 " ----------------------------------------------------------------------------
 
-" XML/HTML tags navigation
-Plug 'vim-scripts/matchit.zip'
-
 " Yank history navigation
 Plug 'vim-scripts/YankRing.vim'
 
@@ -476,3 +473,5 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver'],
 \}
+
+let mapleader=","
