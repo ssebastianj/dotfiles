@@ -1,0 +1,5 @@
+node() {
+    unset -f node
+    nvm use --silent node && node "$@"
+}
+node "$@"

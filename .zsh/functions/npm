@@ -1,0 +1,5 @@
+npm() {
+    unset -f npm
+    nvm use --silent node && npm "$@"
+}
+npm "$@"
