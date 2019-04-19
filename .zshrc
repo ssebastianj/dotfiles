@@ -33,9 +33,6 @@ setopt AUTO_LIST
 setopt AUTO_MENU
 setopt REC_EXACT
 
-## Expansion and Globbing
-setopt EXTENDED_GLOB
-
 ## History
 setopt APPEND_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -43,7 +40,7 @@ setopt HIST_IGNORE_DUPS
 
 ## Input/Output
 unsetopt CORRECT_ALL
-setopt CORRECT
+unsetopt CORRECT
 setopt RM_STAR_WAIT
 
 ## Job Control
