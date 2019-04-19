@@ -61,11 +61,9 @@ export SAVEHIST=$HISTSIZE
 #### Zstyle
 zstyle ':completion:*' cache-path "${HOME}/.zsh/cache"
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' rehash true
+#zstyle ':completion:*' rehash true
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BNo matches for: %d%b'
 
-#### ============================ ssebastianj ================================
 # shellcheck source=/dev/null
 [[ -s "${HOME}/.commonrc" ]] && source "${HOME}/.commonrc"
-
