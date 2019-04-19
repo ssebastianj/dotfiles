@@ -15,7 +15,20 @@ fpath=(
 )
 
 ## Initialize completion for the current session
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+
+# Only check cache once a day
+# Source: https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2767420
+setopt EXTENDEDGLOB
+for dump in $HOME/.zcompdump(#qN.m1); do
+    compinit
+
+    if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+      zcompile "$dump"
+    fi
+done
+unsetopt EXTENDEDGLOB
+compinit -C
 
 ## Initialize advanced prompt support
 autoload -Uz promptinit && promptinit
