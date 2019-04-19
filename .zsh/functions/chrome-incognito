@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+chrome-incognito() {
+    google-chrome --incognito --user-data-dir="/tmp" --temp-profile --no-default-browser-check --no-first-run "$@" >/dev/null 2>&1
+}
+
+chrome-incognito "${@}"
+
