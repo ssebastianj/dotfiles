@@ -88,7 +88,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 #### Node Version Manager ----------------------------------------------------
-autoload -Uz nvm
+autoload -Uz nvm node npm
 
 ### Incognito
 autoload -Uz chrome-incognito
