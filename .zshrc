@@ -20,10 +20,10 @@ autoload -Uz compinit
 # Only check cache once a day
 # Source: https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2767420
 setopt EXTENDEDGLOB
-for dump in "${HOME}/.zcompdump"(#qN.m1); do
-    compinit
+for zcompdumpFile in "${ZDOTDIR:-$HOME}/.zcompdump"(#qN.m+1); do
+    compinit -d "${zcompdumpFile}"
 
-    if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+    if [[ -s "${zcompdumpFile}" && (! -s "${zcompdumpFile}.zwc" || "${zcompdumpFile}" -nt "${zcompdumpFile}.zwc") ]]; then
       zcompile "$dump"
     fi
 done
