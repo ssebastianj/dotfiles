@@ -18,13 +18,13 @@ fpath=(
 autoload -Uz compinit
 
 # Only check cache once a day
-# Source: https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2767420
+# Source: https://gist.github.com/ctechols/ca1035271ad134841284
 setopt EXTENDEDGLOB
-for zcompdumpFile in "${ZDOTDIR:-$HOME}/.zcompdump"(#qN.m+1); do
-    compinit -d "${zcompdumpFile}"
+for zcompdumpFile in "${HOME}/.zcompdump"(#qN.mh+24); do
+    compinit
 
     if [[ -s "${zcompdumpFile}" && (! -s "${zcompdumpFile}.zwc" || "${zcompdumpFile}" -nt "${zcompdumpFile}.zwc") ]]; then
-      zcompile "$dump"
+      zcompile "${zcompdumpFile}"
     fi
 done
 unsetopt EXTENDEDGLOB
