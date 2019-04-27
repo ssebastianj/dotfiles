@@ -1,5 +1,5 @@
 npm() {
     unset -f npm
-    nvm use --silent node && npm "$@"
+    nvm use --silent --delete-prefix node && npm "$@"
 }
 npm "$@"

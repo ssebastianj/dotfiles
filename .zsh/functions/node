@@ -1,5 +1,5 @@
 node() {
     unset -f node
-    nvm use --silent node && node "$@"
+    nvm use --silent --delete-prefix node && node "$@"
 }
 node "$@"
