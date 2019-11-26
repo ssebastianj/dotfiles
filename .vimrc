@@ -37,7 +37,7 @@ Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 
 " Rust support
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
@@ -70,7 +70,7 @@ Plug 'w0rp/ale'
 " ----------------------------------------------------------------------------
 
 " Yank history navigation
-Plug 'vim-scripts/YankRing.vim'
+" Plug 'vim-scripts/YankRing.vim'
 
 call plug#end()
 
@@ -167,7 +167,7 @@ set undofile                      " persistent undos - undo after you re-open th
 set undodir=~/.vim/dirs/undos
 set viminfo+=n~/.vim/dirs/viminfo
 " store yankring history file there too
-let g:yankring_history_dir = '~/.vim/dirs/'
+" let g:yankring_history_dir = '~/.vim/dirs/'
 
 " create needed directories if they don't exist
 if !isdirectory(&backupdir)
@@ -459,6 +459,9 @@ let mapleader=","
 " Case
 nmap <F9> :set ignorecase! ignorecase?
 set smartcase
+
+" Python
+let g:pymode_python = 'python3'
 
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
