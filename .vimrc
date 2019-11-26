@@ -457,8 +457,7 @@ map <leader>r :call RenameFile()<cr>
 let mapleader=","
 
 " Case
-nmap <F9> :set ignorecase! ignorecase?
-set smartcase
+set ignorecase smartcase
 
 " Python
 let g:pymode_python = 'python3'
