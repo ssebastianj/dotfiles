@@ -64,8 +64,9 @@ fi
 export PATH="${HOME}/.git-contrib:${PATH}"
 
 #### Golang ------------------------------------------------------------------
+export GOROOT="/usr/local/lib/go"
 export GOPATH="${PROJ_ROOT}/go"
-export PATH="${GOPATH}/bin:${PATH}"
+export PATH="${GOROOT}/bin:${GOPATH}/bin:${PATH}"
 
 #### Rust --------------------------------------------------------------------
 export RUSTUP_HOME="${HOME}/.rustup"
