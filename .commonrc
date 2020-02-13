@@ -27,6 +27,7 @@ is_zsh_shell() {
 
 #### Root dir for development purposes ---------------------------------------
 export PROJ_ROOT="${HOME}/projects"
+export DEMOS_ROOT="${HOME}/demos"
 
 #### Extra -------------------------------------------------------------------
 if [[ -r ".extra" ]] && [[ -f ".extra" ]]; then
