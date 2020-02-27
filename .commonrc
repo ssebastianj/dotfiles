@@ -46,6 +46,12 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 # shellcheck source=/dev/null
 [[ -s "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
 
+#### Man pages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# It might also be necessary to set MANROFFOPT if there are formatting problems.
+export MANROFFOPT="-c"
+
 #### Python ------------------------------------------------
 export PATH="${HOME}/.local/bin:${PATH}"
 export WORKON_HOME="${PROJ_ROOT}/.virtualenvs"
