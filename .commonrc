@@ -104,3 +104,7 @@ autoload -Uz nvm node npm
 
 #### Incognito ---------------------------------------------------------------
 autoload -Uz chrome-incognito
+
+### FZF
+# https://github.com/junegunn/fzf
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
