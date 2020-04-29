@@ -1,0 +1,5 @@
+npx() {
+    unset -f npx
+    nvm use --silent --delete-prefix node && npx "$@"
+}
+npx "$@"
