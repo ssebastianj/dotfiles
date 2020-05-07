@@ -3,7 +3,7 @@ nvm() {
     unset -f nvm
     export NVM_DIR=~/.nvm
     # shellcheck source=/dev/null
-    [[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh" --no-use
+    [[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh" --no-use # This loads nvm
     nvm "$@"
 }
 nvm "$@"

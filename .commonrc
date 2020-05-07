@@ -92,7 +92,8 @@ export POETRY_HOME="${HOME}/.poetry"
 export PATH="${POETRY_HOME}/bin:${PATH}"
 
 #### Node Version Manager ----------------------------------------------------
-autoload -Uz nvm node npm
+export NVM_DIR="${HOME}/.nvm"
+autoload -Uz nvm node npm npx
 
 #### Incognito ---------------------------------------------------------------
 autoload -Uz chrome-incognito
