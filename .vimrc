@@ -490,3 +490,8 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \}
 
+" Shada file for neovim
+" See: https://neovim.io/doc/user/starting.html#shada
+if has('nvim')
+  set viminfo+=n~/local/share/nvim/shada/main.shada
+endif
