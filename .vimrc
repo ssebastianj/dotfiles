@@ -5,6 +5,8 @@ set fileencoding=utf-8
 set nocompatible
 
 filetype off
+" ========================== Python 3 support ================================
+let g:python3_host_prog = $WORKON_HOME . '/neovim_python3_support/bin/python'
 
 " ============================================================================
 " Active plugins
@@ -60,8 +62,15 @@ Plug 'tpope/vim-markdown'
 " Surround
 Plug 'tpope/vim-surround'
 
-" Better autocompletion
-Plug 'Shougo/neocomplete.vim'
+" See: https://github.com/Shougo/deoplete.nvim#install
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
