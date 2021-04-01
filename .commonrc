@@ -89,4 +89,11 @@ autoload -Uz chrome-incognito
 
 ### FZF
 # https://github.com/junegunn/fzf
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+case "${guessed_current_shell}" in
+    "bash")
+        [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+        ;;
+    "zsh")
+        [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+        ;;
+esac
