@@ -1,28 +1,17 @@
 # shellcheck shell=bash
 
 #### =========================== Functions ===================================
-
-# Assume "zsh" shell by default
-guessed_shell='zsh'
-
-# Try to guess shell
-guess_shell() {
-    if [[ -n "${BASH_VERSION}" ]]; then
-        # Assume shell is bash
-        guessed_shell='bash'
-    elif [[ -n "${ZSH_VERSION}" ]]; then
-        # Assume shell is zsh
-        guessed_shell='zsh'
-   fi
+guess_current_shell() {
+    echo "$(sh -c 'ps -p $$ -o ppid=' | xargs ps -o comm= -p)"
 }
-guess_shell
+guessed_current_shell="$(guess_current_shell)" || 'bash'
 
 is_bash_shell() {
-    [[ "${guessed_shell}" == 'bash' ]]
+    [[ "${guessed_current_shell}" == 'bash' ]]
 }
 
 is_zsh_shell() {
-    [[ "${guessed_shell}" == 'zsh' ]]
+    [[ "${guessed_current_shell}" == 'zsh' ]]
 }
 
 #### Root dir for development purposes ---------------------------------------
@@ -36,7 +25,7 @@ if [[ -r ".extra" ]] && [[ -f ".extra" ]]; then
 fi
 
 #### Editor ------------------------------------------------------------------
-export EDITOR="vim"
+export EDITOR="nvim"
 
 ### Colors -------------------------------------------------------------------
 # Colorize terminal
@@ -70,9 +59,9 @@ fi
 export PATH="${HOME}/.git-contrib:${PATH}"
 
 #### Golang ------------------------------------------------------------------
-export GOROOT="/usr/local/lib/go"
+#export GOROOT="/usr/local/lib/go"
 export GOPATH="${PROJ_ROOT}/go"
-export PATH="${GOROOT}/bin:${GOPATH}/bin:${PATH}"
+#export PATH="${GOROOT}/bin:${GOPATH}/bin:${PATH}"
 
 #### Rust --------------------------------------------------------------------
 export RUSTUP_HOME="${HOME}/.rustup"
