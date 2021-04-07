@@ -2,7 +2,7 @@
 
 #### =========================== Functions ===================================
 guess_current_shell() {
-    echo "$(sh -c 'ps -p $$ -o ppid=' | xargs ps -o comm= -p)"
+    printf '%s' "$(sh -c 'ps -p $$ -o ppid=' | xargs ps -o comm= -p)"
 }
 guessed_current_shell="$(guess_current_shell)" || 'bash'
 
