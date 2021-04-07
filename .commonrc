@@ -83,7 +83,7 @@ export PATH="${POETRY_HOME}/bin:${PATH}"
 #### Node Version Manager ----------------------------------------------------
 export NVM_DIR="${HOME}/.nvm"
 
-#### Load Zsh functions
+#### Zsh functions -----------------------------------------------------------
 if is_zsh_shell;
 then
     autoload -Uz \
@@ -94,7 +94,7 @@ then
     chrome-incognito
 fi
 
-### FZF
+#### FZF ---------------------------------------------------------------------
 # https://github.com/junegunn/fzf
 case "${guessed_current_shell}" in
     "bash")
