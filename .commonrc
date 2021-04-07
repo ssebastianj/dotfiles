@@ -82,10 +82,17 @@ export PATH="${POETRY_HOME}/bin:${PATH}"
 
 #### Node Version Manager ----------------------------------------------------
 export NVM_DIR="${HOME}/.nvm"
-autoload -Uz nvm node npm npx
 
-#### Incognito ---------------------------------------------------------------
-autoload -Uz chrome-incognito
+#### Load Zsh functions
+if is_zsh_shell;
+then
+    autoload -Uz \
+    nvm \
+    node \
+    npm \
+    npx \
+    chrome-incognito
+fi
 
 ### FZF
 # https://github.com/junegunn/fzf
