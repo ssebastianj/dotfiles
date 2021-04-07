@@ -98,9 +98,11 @@ fi
 # https://github.com/junegunn/fzf
 case "${guessed_current_shell}" in
     "bash")
+        # shellcheck source=/dev/null
         [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
         ;;
     "zsh")
+        # shellcheck source=/dev/null
         [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
         ;;
 esac
