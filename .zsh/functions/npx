@@ -1,6 +1,6 @@
 npx() {
     unset -f npx
-    nvm use --silent --lts
+    nvm use --silent --lts 2>/dev/null
     npx "$@"
 }
 npx "$@"

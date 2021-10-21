@@ -1,6 +1,6 @@
 npm() {
     unset -f npm
-    nvm use --silent --lts
+    nvm use --silent --lts 2>/dev/null
     npm "$@"
 }
 npm "$@"

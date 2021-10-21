@@ -1,6 +1,6 @@
 node() {
     unset -f node
-    nvm use --silent --lts
+    nvm use --silent --lts 2>/dev/null
     node "$@"
 }
 node "$@"
