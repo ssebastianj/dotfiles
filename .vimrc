@@ -72,6 +72,9 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+" Deoplete plugins
+Plug 'deoplete-plugins/deoplete-jedi'
+
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
 
