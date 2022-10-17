@@ -1,6 +1,7 @@
 [user]
     # Require config to exist in order to make commits
 	useConfigOnly = true
+
 [color]
     ui          = 1
     status      = true
@@ -62,9 +63,11 @@
 
 [core]
     editor = nvim
+    pager = delta
 
 [merge]
     tool = meld
+	conflictstyle = zdiff3
 
 [mergetool "meld"]
     cmd = meld $LOCAL $BASE $REMOTE --output $MERGED --diff $BASE $LOCAL --diff $BASE $REMOTE --auto-merge
@@ -76,11 +79,16 @@
 [difftool "meld"]
     cmd = meld "$LOCAL $REMOTE"
 
-[pager]
-    log  = less
-    show = less
-    diff = less
+[interactive]
+    diffFilter = delta --color-only
 
+[delta]
+    features = decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    file-style = brightyellow ul
+    file-decoration-style = none
 
 # use separate file for username / github token / etc
 # "Inspi-tolen" from: https://github.com/paulirish/dotfiles/blob/9a865be4d6c77e6556bfe2c90e44c31afa2c7cf7/.gitconfig#L92
